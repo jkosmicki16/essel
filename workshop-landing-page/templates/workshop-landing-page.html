@@ -33,18 +33,24 @@ a    { text-decoration: none; }
   width: 100%;
 }
 
-/* ── DnD compatibility: neutralise HubSpot's Bootstrap grid floats
-      so stacked rows don't collapse ── */
-.dnd-section > .row-fluid           { margin-left: 0 !important; }
+/* ── DnD compatibility: replace Bootstrap floats with flexbox ── */
+.dnd-section > .row-fluid,
+.dnd-section .row-fluid {
+  display: flex !important;
+  flex-wrap: wrap;
+  margin-left: 0 !important;
+}
 .dnd-section .row-fluid::after,
-.dnd-section .row-fluid::before     { display: none !important; }
+.dnd-section .row-fluid::before { display: none !important; }
 .dnd-section .row-fluid > [class*="span"] {
   float: none !important;
-  display: inline-block;
-  vertical-align: top;
-  min-height: 1px;
+  box-sizing: border-box;
+  margin-left: 0 !important;
 }
-/* HubSpot wraps dnd_column content — make sure backgrounds bleed */
+.dnd-section .row-fluid > .span12 { width: 100%; flex: 0 0 100%; }
+.dnd-section .row-fluid > .span6  { width: 50%;  flex: 0 0 50%; }
+.dnd-section .row-fluid > .span4  { width: 33.333%; flex: 0 0 33.333%; }
+.dnd-section .row-fluid > .span3  { width: 25%; flex: 0 0 25%; }
 .dnd-section { width: 100% !important; }
 
 /* ── TOP BANNER ── */
@@ -466,6 +472,10 @@ a    { text-decoration: none; }
   .sec-title h2 { font-size: 26px !important; }
   .bg-heading { font-size: 22px !important; }
   .cta-btn { font-size: 18px !important; padding: 18px 16px; }
+  /* DnD columns — stack on mobile */
+  .dnd-section .row-fluid > .span6,
+  .dnd-section .row-fluid > .span4,
+  .dnd-section .row-fluid > .span3 { width: 100% !important; flex: 0 0 100% !important; }
   /* Benefits — stack cards on mobile */
   .benefits-grid { flex-direction: column; gap: 20px; }
   .benefit-box { flex: none; width: 100%; padding-bottom: 20px; }
