@@ -1,0 +1,172 @@
+{
+  "label": "Feature Cards (What You'll Get)",
+  "css_assets": [],
+  "external_js": [],
+  "global": false,
+  "help_text": "3-column grid of numbered feature cards, each with a title, description, and optional image. Includes a CTA button below the cards.",
+  "host_template_types": ["PAGE"],
+  "icon": "layout_cards",
+  "is_available_for_new_content": true,
+  "js_assets": [],
+  "other_assets": [],
+  "smart_type": "NOT_SMART",
+  "tags": ["features", "cards", "benefits"],
+  "fields": [
+    {
+      "id": "eyebrow",
+      "name": "eyebrow",
+      "label": "Eyebrow / Label",
+      "help_text": "Small uppercase label above the heading.",
+      "required": false,
+      "locked": false,
+      "type": "text",
+      "default": "What You'll Get"
+    },
+    {
+      "id": "section_heading",
+      "name": "section_heading",
+      "label": "Section Heading",
+      "required": false,
+      "locked": false,
+      "type": "text",
+      "default": "Everything you need to transform your marketing"
+    },
+    {
+      "id": "section_subtext",
+      "name": "section_subtext",
+      "label": "Section Sub-text",
+      "required": false,
+      "locked": false,
+      "type": "text",
+      "default": "We've distilled years of testing and $100M+ in ad spend into a two-day curriculum you can deploy immediately."
+    },
+    {
+      "id": "cards",
+      "name": "cards",
+      "label": "Feature Cards",
+      "help_text": "Add 1–6 feature cards. Each card has a number badge, title, description, and optional image.",
+      "type": "group",
+      "occurrence": {
+        "min": 1,
+        "max": 6,
+        "default": 3,
+        "sorting_label_field": "title"
+      },
+      "default": [
+        {
+          "number": "#1",
+          "title": "The Acquisition Framework",
+          "description": "<p>A proven, step-by-step customer acquisition system you can plug into your business on day one.</p>",
+          "image": {
+            "src": "https://via.placeholder.com/600x400/222222/F5A623?text=Framework+Visual",
+            "alt": "Acquisition framework diagram",
+            "width": 600,
+            "height": 400
+          }
+        },
+        {
+          "number": "#2",
+          "title": "Paid Media Playbook",
+          "description": "<p>The exact ad structures, copy formulas, and targeting strategies used to scale to 8-figures.</p>",
+          "image": {
+            "src": "https://via.placeholder.com/600x400/222222/F5A623?text=Media+Playbook",
+            "alt": "Paid media playbook visual",
+            "width": 600,
+            "height": 400
+          }
+        },
+        {
+          "number": "#3",
+          "title": "90-Day Action Plan",
+          "description": "<p>Leave with a personalized 90-day roadmap built during the workshop — not a template, your actual plan.</p>",
+          "image": {
+            "src": "https://via.placeholder.com/600x400/222222/F5A623?text=Action+Plan",
+            "alt": "90-day action plan visual",
+            "width": 600,
+            "height": 400
+          }
+        }
+      ],
+      "children": [
+        {
+          "id": "card_number",
+          "name": "number",
+          "label": "Card Number / Badge",
+          "help_text": "Displayed in a circle badge (e.g. '#1', '01').",
+          "required": false,
+          "locked": false,
+          "type": "text",
+          "default": "#1"
+        },
+        {
+          "id": "card_title",
+          "name": "title",
+          "label": "Card Title",
+          "required": false,
+          "locked": false,
+          "type": "text",
+          "default": "Feature Title"
+        },
+        {
+          "id": "card_description",
+          "name": "description",
+          "label": "Card Description",
+          "required": false,
+          "locked": false,
+          "type": "richtext",
+          "default": "<p>A short description of this key feature or deliverable.</p>"
+        },
+        {
+          "id": "card_image",
+          "name": "image",
+          "label": "Card Image",
+          "help_text": "Supporting image shown at the top of the card.",
+          "required": false,
+          "locked": false,
+          "type": "image",
+          "default": {
+            "src": "https://via.placeholder.com/600x400/222222/F5A623?text=Feature+Image",
+            "alt": "Feature image",
+            "width": 600,
+            "height": 400
+          }
+        }
+      ]
+    },
+    {
+      "id": "cta_text",
+      "name": "cta_text",
+      "label": "CTA Button Text",
+      "required": false,
+      "locked": false,
+      "type": "text",
+      "default": "Reserve My Spot Now"
+    },
+    {
+      "id": "cta_link",
+      "name": "cta_link",
+      "label": "CTA Button Link",
+      "required": false,
+      "locked": false,
+      "type": "link",
+      "default": {
+        "url": {
+          "type": "EXTERNAL",
+          "href": "#tickets"
+        },
+        "open_in_new_tab": false,
+        "no_follow": false
+      }
+    },
+    {
+      "id": "cta_subtext",
+      "name": "cta_subtext",
+      "label": "CTA Sub-text",
+      "help_text": "Small italic note below the CTA button.",
+      "required": false,
+      "locked": false,
+      "type": "text",
+      "default": "Seats fill up fast. Last event sold out in 48 hours."
+    }
+  ]
+}

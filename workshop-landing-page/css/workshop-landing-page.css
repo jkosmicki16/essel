@@ -1,0 +1,510 @@
+/* ==========================================================================
+   Workshop Landing Page — Global Styles
+   Template: workshop-landing-page.html
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   CSS Custom Properties (Design Tokens)
+   -------------------------------------------------------------------------- */
+:root {
+  /* Colors */
+  --wlp-bg-primary:       #0D0D0D;
+  --wlp-bg-card:          #1A1A1A;
+  --wlp-bg-elevated:      #222222;
+  --wlp-accent:           #F5A623;
+  --wlp-accent-dark:      #D4891A;
+  --wlp-accent-light:     #FFB84D;
+  --wlp-text-primary:     #FFFFFF;
+  --wlp-text-secondary:   #B0B0B0;
+  --wlp-text-muted:       #6B6B6B;
+  --wlp-border:           #2A2A2A;
+  --wlp-border-accent:    rgba(245, 166, 35, 0.3);
+
+  /* Typography */
+  --wlp-font-heading:     'Sora', sans-serif;
+  --wlp-font-body:        'Plus Jakarta Sans', sans-serif;
+
+  /* Spacing */
+  --wlp-section-pad-v:    100px;
+  --wlp-section-pad-v-sm: 60px;
+  --wlp-container-width:  1200px;
+  --wlp-container-pad:    24px;
+
+  /* Transitions */
+  --wlp-transition:       0.22s ease;
+  --wlp-transition-slow:  0.4s ease;
+
+  /* Radius */
+  --wlp-radius-sm:        6px;
+  --wlp-radius-md:        12px;
+  --wlp-radius-lg:        20px;
+}
+
+/* --------------------------------------------------------------------------
+   Reset & Base
+   -------------------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body.wlp-page {
+  background-color: var(--wlp-bg-primary);
+  color: var(--wlp-text-primary);
+  font-family: var(--wlp-font-body);
+  font-size: 17px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: var(--wlp-accent);
+  text-decoration: none;
+  transition: color var(--wlp-transition);
+}
+
+a:hover {
+  color: var(--wlp-accent-light);
+}
+
+/* --------------------------------------------------------------------------
+   Layout Utilities
+   -------------------------------------------------------------------------- */
+.wlp-container {
+  max-width: var(--wlp-container-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--wlp-container-pad);
+  padding-right: var(--wlp-container-pad);
+}
+
+.wlp-section {
+  padding-top: var(--wlp-section-pad-v);
+  padding-bottom: var(--wlp-section-pad-v);
+}
+
+.wlp-section--dark {
+  background-color: var(--wlp-bg-card);
+}
+
+/* --------------------------------------------------------------------------
+   Typography Utilities
+   -------------------------------------------------------------------------- */
+.wlp-eyebrow {
+  display: inline-block;
+  font-family: var(--wlp-font-body);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--wlp-accent);
+  margin-bottom: 20px;
+}
+
+.wlp-heading-xl {
+  font-family: var(--wlp-font-heading);
+  font-size: clamp(40px, 6vw, 64px);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: var(--wlp-text-primary);
+}
+
+.wlp-heading-lg {
+  font-family: var(--wlp-font-heading);
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  color: var(--wlp-text-primary);
+}
+
+.wlp-heading-md {
+  font-family: var(--wlp-font-heading);
+  font-size: clamp(22px, 3vw, 32px);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--wlp-text-primary);
+}
+
+.wlp-body {
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--wlp-text-secondary);
+}
+
+/* --------------------------------------------------------------------------
+   Buttons (shared across all sections)
+   -------------------------------------------------------------------------- */
+.wlp-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--wlp-font-body);
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition:
+    transform var(--wlp-transition),
+    background-color var(--wlp-transition),
+    box-shadow var(--wlp-transition);
+  white-space: nowrap;
+  line-height: 1;
+}
+
+.wlp-btn--primary {
+  background-color: var(--wlp-accent);
+  color: #0D0D0D;
+  padding: 20px 40px;
+  border-radius: var(--wlp-radius-sm);
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.wlp-btn--primary:hover,
+.wlp-btn--primary:focus-visible {
+  background-color: var(--wlp-accent-light);
+  color: #0D0D0D;
+  transform: scale(1.03);
+  box-shadow: 0 8px 32px rgba(245, 166, 35, 0.35);
+}
+
+.wlp-btn--primary:active {
+  transform: scale(0.99);
+}
+
+.wlp-btn--sm {
+  background-color: var(--wlp-accent);
+  color: #0D0D0D;
+  padding: 11px 22px;
+  border-radius: var(--wlp-radius-sm);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.wlp-btn--sm:hover,
+.wlp-btn--sm:focus-visible {
+  background-color: var(--wlp-accent-light);
+  color: #0D0D0D;
+  transform: scale(1.04);
+}
+
+.wlp-btn--outline {
+  background-color: transparent;
+  color: var(--wlp-accent);
+  padding: 18px 38px;
+  border-radius: var(--wlp-radius-sm);
+  border: 2px solid var(--wlp-accent);
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.wlp-btn--outline:hover,
+.wlp-btn--outline:focus-visible {
+  background-color: var(--wlp-accent);
+  color: #0D0D0D;
+  transform: scale(1.03);
+}
+
+/* --------------------------------------------------------------------------
+   Navigation
+   -------------------------------------------------------------------------- */
+.wlp-nav {
+  position: sticky;
+  top: 0;
+  z-index: 900;
+  background-color: rgba(13, 13, 13, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--wlp-border);
+}
+
+.wlp-nav__inner {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  height: 68px;
+}
+
+.wlp-nav__logo {
+  flex-shrink: 0;
+  line-height: 0;
+}
+
+.wlp-nav__logo .hs_cos_wrapper {
+  display: block;
+  line-height: 0;
+}
+
+.wlp-nav__logo img {
+  height: 36px;
+  width: auto;
+}
+
+.wlp-nav__menu {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+/* HubSpot menu module overrides */
+.wlp-nav__menu .hs-menu-wrapper > ul {
+  display: flex;
+  gap: 8px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.wlp-nav__menu .hs-menu-wrapper > ul > li > a {
+  display: inline-block;
+  padding: 8px 14px;
+  font-family: var(--wlp-font-body);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--wlp-text-secondary);
+  text-decoration: none;
+  border-radius: var(--wlp-radius-sm);
+  transition: color var(--wlp-transition), background-color var(--wlp-transition);
+}
+
+.wlp-nav__menu .hs-menu-wrapper > ul > li > a:hover {
+  color: var(--wlp-text-primary);
+  background-color: var(--wlp-bg-card);
+}
+
+.wlp-nav__cta {
+  flex-shrink: 0;
+  margin-left: auto;
+}
+
+/* Mobile toggle */
+.wlp-nav__toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 36px;
+  height: 36px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  margin-left: auto;
+}
+
+.wlp-nav__toggle span {
+  display: block;
+  height: 2px;
+  background-color: var(--wlp-text-primary);
+  border-radius: 2px;
+  transition: transform var(--wlp-transition), opacity var(--wlp-transition);
+}
+
+.wlp-nav__toggle[aria-expanded="true"] span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.wlp-nav__toggle[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+}
+
+.wlp-nav__toggle[aria-expanded="true"] span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* --------------------------------------------------------------------------
+   Footer
+   -------------------------------------------------------------------------- */
+.wlp-footer {
+  background-color: #080808;
+  border-top: 1px solid var(--wlp-border);
+  padding: 60px 0 40px;
+}
+
+.wlp-footer__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid var(--wlp-border);
+  flex-wrap: wrap;
+}
+
+.wlp-footer__logo img {
+  height: 32px;
+  width: auto;
+}
+
+.wlp-footer__links .hs-menu-wrapper > ul {
+  display: flex;
+  gap: 24px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap;
+}
+
+.wlp-footer__links .hs-menu-wrapper > ul > li > a {
+  font-family: var(--wlp-font-body);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--wlp-text-muted);
+  transition: color var(--wlp-transition);
+}
+
+.wlp-footer__links .hs-menu-wrapper > ul > li > a:hover {
+  color: var(--wlp-text-primary);
+}
+
+.wlp-footer__bottom {
+  padding-top: 32px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.wlp-footer__disclaimer p,
+.wlp-footer__disclaimer {
+  font-size: 12px;
+  line-height: 1.7;
+  color: var(--wlp-text-muted);
+  max-width: 680px;
+}
+
+.wlp-footer__legal-links .hs-menu-wrapper > ul {
+  display: flex;
+  gap: 16px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.wlp-footer__legal-links .hs-menu-wrapper > ul > li > a {
+  font-size: 12px;
+  color: var(--wlp-text-muted);
+  transition: color var(--wlp-transition);
+}
+
+.wlp-footer__legal-links .hs-menu-wrapper > ul > li > a:hover {
+  color: var(--wlp-text-secondary);
+}
+
+/* --------------------------------------------------------------------------
+   HubSpot DnD area wrapper resets
+   -------------------------------------------------------------------------- */
+.dnd-section,
+.dnd-column,
+.dnd-row {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive Breakpoints
+   -------------------------------------------------------------------------- */
+@media (max-width: 900px) {
+  :root {
+    --wlp-section-pad-v: var(--wlp-section-pad-v-sm);
+  }
+}
+
+@media (max-width: 768px) {
+  .wlp-nav__toggle {
+    display: flex;
+  }
+
+  .wlp-nav__menu {
+    position: absolute;
+    top: 68px;
+    left: 0;
+    right: 0;
+    background-color: rgba(13, 13, 13, 0.98);
+    border-bottom: 1px solid var(--wlp-border);
+    padding: 16px var(--wlp-container-pad) 24px;
+    display: none;
+  }
+
+  .wlp-nav__menu.is-open {
+    display: block;
+  }
+
+  .wlp-nav__menu .hs-menu-wrapper > ul {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .wlp-nav__menu .hs-menu-wrapper > ul > li > a {
+    display: block;
+    padding: 12px 16px;
+    font-size: 16px;
+  }
+
+  .wlp-nav__cta {
+    display: none;
+  }
+
+  .wlp-footer__top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+
+  .wlp-footer__bottom {
+    flex-direction: column;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Accessibility
+   -------------------------------------------------------------------------- */
+:focus-visible {
+  outline: 2px solid var(--wlp-accent);
+  outline-offset: 3px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Scroll Offset for Sticky Nav
+   -------------------------------------------------------------------------- */
+:target::before {
+  content: '';
+  display: block;
+  height: 88px;
+  margin-top: -88px;
+}

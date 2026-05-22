@@ -1,0 +1,52 @@
+<section class="wlp-faq wlp-fade-in">
+  <div class="wlp-container">
+
+    <div class="wlp-faq__header">
+      {% if module.eyebrow %}
+      <p class="wlp-eyebrow">{{ module.eyebrow }}</p>
+      {% endif %}
+      {% if module.section_heading %}
+      <h2 class="wlp-heading-lg wlp-faq__heading">{{ module.section_heading }}</h2>
+      {% endif %}
+      {% if module.section_intro %}
+      <div class="wlp-body wlp-faq__intro">{{ module.section_intro }}</div>
+      {% endif %}
+    </div>
+
+    {% if module.faqs and module.faqs|length > 0 %}
+    <div class="wlp-faq__list">
+      {% for item in module.faqs %}
+      <div class="wlp-faq__item">
+        <h3 class="wlp-faq__question">{{ item.question }}</h3>
+        <div class="wlp-faq__answer">{{ item.answer }}</div>
+      </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+    {% if module.industries_heading or module.industries_list %}
+    <div class="wlp-faq__industries">
+      {% if module.industries_heading %}
+      <p class="wlp-faq__industries-heading">{{ module.industries_heading }}</p>
+      {% endif %}
+      {% if module.industries_list %}
+      <p class="wlp-faq__industries-list">{{ module.industries_list }}</p>
+      {% endif %}
+    </div>
+    {% endif %}
+
+    {% if module.cta_text and module.cta_link.url.href %}
+    <div class="wlp-faq__cta-wrap">
+      <a href="{{ module.cta_link.url.href }}"
+         class="wlp-btn wlp-btn--primary"
+         {% if module.cta_link.open_in_new_tab %}target="_blank" rel="noopener noreferrer"{% endif %}>
+        {{ module.cta_text }}
+      </a>
+      {% if module.cta_subtext %}
+      <p class="wlp-faq__cta-subtext">{{ module.cta_subtext }}</p>
+      {% endif %}
+    </div>
+    {% endif %}
+
+  </div>
+</section>

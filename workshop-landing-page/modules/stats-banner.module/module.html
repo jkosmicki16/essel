@@ -1,0 +1,32 @@
+<section class="wlp-stats wlp-fade-in"
+  {% if module.background_image.src %}
+  style="background-image: url('{{ module.background_image.src }}');"
+  {% endif %}
+>
+  <div class="wlp-stats__overlay" aria-hidden="true"></div>
+  <div class="wlp-container wlp-stats__container">
+
+    {% if module.section_heading %}
+    <p class="wlp-eyebrow wlp-stats__eyebrow">{{ module.section_heading }}</p>
+    {% endif %}
+
+    {% if module.stats and module.stats|length > 0 %}
+    <div class="wlp-stats__row">
+      {% for stat in module.stats %}
+      <div class="wlp-stats__item">
+        <div class="wlp-stats__number">{{ stat.number }}</div>
+        <div class="wlp-stats__label">{{ stat.label }}</div>
+      </div>
+      {% if not loop.last %}
+      <div class="wlp-stats__divider" aria-hidden="true"></div>
+      {% endif %}
+      {% endfor %}
+    </div>
+    {% endif %}
+
+    {% if module.subtext %}
+    <p class="wlp-stats__subtext">{{ module.subtext }}</p>
+    {% endif %}
+
+  </div>
+</section>

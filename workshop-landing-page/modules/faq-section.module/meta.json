@@ -1,0 +1,150 @@
+{
+  "label": "FAQ / Q&A Section",
+  "css_assets": [],
+  "external_js": [],
+  "global": false,
+  "help_text": "Long-form FAQ section with bold question headings, rich text answers, an optional industries list, and a final CTA button.",
+  "host_template_types": ["PAGE"],
+  "icon": "help",
+  "is_available_for_new_content": true,
+  "js_assets": [],
+  "other_assets": [],
+  "smart_type": "NOT_SMART",
+  "tags": ["faq", "qa", "cta"],
+  "fields": [
+    {
+      "id": "eyebrow",
+      "name": "eyebrow",
+      "label": "Eyebrow / Label",
+      "required": false,
+      "locked": false,
+      "type": "text",
+      "default": "Straight Answers"
+    },
+    {
+      "id": "section_heading",
+      "name": "section_heading",
+      "label": "Section Heading",
+      "required": false,
+      "locked": false,
+      "type": "text",
+      "default": "Everything you want to know"
+    },
+    {
+      "id": "section_intro",
+      "name": "section_intro",
+      "label": "Section Intro Text",
+      "help_text": "Optional paragraph introduction before the FAQ list.",
+      "required": false,
+      "locked": false,
+      "type": "richtext",
+      "default": "<p>I get it — you have questions. Here are the ones I hear most, answered straight.</p>"
+    },
+    {
+      "id": "faqs",
+      "name": "faqs",
+      "label": "FAQ Items",
+      "help_text": "Add as many Q&A pairs as you need.",
+      "type": "group",
+      "occurrence": {
+        "min": 1,
+        "max": 20,
+        "default": 4,
+        "sorting_label_field": "question"
+      },
+      "default": [
+        {
+          "question": "What actually happens during the 2 days?",
+          "answer": "<p>Day 1 is frameworks and strategy. We cover customer acquisition from first principles — how to identify your ideal buyer, build messaging that converts, and architect a paid and organic system that scales.</p><p>Day 2 is execution. You'll build your actual 90-day plan in the room with coaching from the team. You leave with something you can deploy on Monday morning.</p>"
+        },
+        {
+          "question": "What do I walk away with?",
+          "answer": "<p>Three things:</p><ul><li><strong>A documented 90-day marketing plan</strong> — written and reviewed in the room, specific to your business</li><li><strong>The complete playbook</strong> — every framework, template, and swipe file from both days</li><li><strong>Access to the alumni network</strong> — a private community of operators who've been through the program</li></ul>"
+        },
+        {
+          "question": "Is this right for my business size or industry?",
+          "answer": "<p>Yes, if you're generating revenue and want to grow it. This isn't a beginner course — we assume you have a product people want and you're trying to pour fuel on the fire.</p><p>We've worked with companies across dozens of industries. The principles are universal.</p>"
+        },
+        {
+          "question": "How much are tickets?",
+          "answer": "<p>Tickets are <strong>$X,XXX per person</strong>. Group pricing is available for teams of 3 or more. Payment plans are available — reach out before buying.</p><p>Compare that to a single month of wasted ad spend or one bad hire. This pays for itself the first time you implement one framework.</p>"
+        }
+      ],
+      "children": [
+        {
+          "id": "faq_question",
+          "name": "question",
+          "label": "Question",
+          "required": false,
+          "locked": false,
+          "type": "text",
+          "default": "Your question goes here?"
+        },
+        {
+          "id": "faq_answer",
+          "name": "answer",
+          "label": "Answer",
+          "help_text": "Supports rich text — use bold for emphasis, lists for structure.",
+          "required": false,
+          "locked": false,
+          "type": "richtext",
+          "default": "<p>Your answer goes here. Write it like you're talking directly to your customer.</p>"
+        }
+      ]
+    },
+    {
+      "id": "industries_heading",
+      "name": "industries_heading",
+      "label": "Industries Block Heading",
+      "help_text": "Heading for the industries callout box.",
+      "required": false,
+      "locked": false,
+      "type": "text",
+      "default": "Industries we've helped:"
+    },
+    {
+      "id": "industries_list",
+      "name": "industries_list",
+      "label": "Industries List",
+      "help_text": "Comma-separated or prose list of industries.",
+      "required": false,
+      "locked": false,
+      "type": "text",
+      "default": "eCommerce · SaaS · Professional Services · Agencies · Real Estate · Healthcare · Finance · Coaching & Consulting · Consumer Brands · Local Businesses"
+    },
+    {
+      "id": "cta_text",
+      "name": "cta_text",
+      "label": "CTA Button Text",
+      "required": false,
+      "locked": false,
+      "type": "text",
+      "default": "I'm In — Grab My Seat"
+    },
+    {
+      "id": "cta_link",
+      "name": "cta_link",
+      "label": "CTA Button Link",
+      "required": false,
+      "locked": false,
+      "type": "link",
+      "default": {
+        "url": {
+          "type": "EXTERNAL",
+          "href": "#tickets"
+        },
+        "open_in_new_tab": false,
+        "no_follow": false
+      }
+    },
+    {
+      "id": "cta_subtext",
+      "name": "cta_subtext",
+      "label": "CTA Sub-text",
+      "required": false,
+      "locked": false,
+      "type": "text",
+      "default": "Questions? Email us at hello@yourworkshop.com"
+    }
+  ]
+}

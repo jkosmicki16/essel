@@ -1,0 +1,76 @@
+{
+  "label": "Announcement Banner",
+  "css_assets": [],
+  "external_js": [],
+  "global": false,
+  "help_text": "Sticky top bar with bold message and optional CTA link. Toggle visibility with the 'Show Banner' field.",
+  "host_template_types": ["PAGE", "BLOG_POST", "BLOG_LISTING"],
+  "icon": "announcement",
+  "is_available_for_new_content": true,
+  "js_assets": [],
+  "other_assets": [],
+  "smart_type": "NOT_SMART",
+  "tags": ["announcement", "banner", "notification"],
+  "fields": [
+    {
+      "id": "show_banner",
+      "name": "show_banner",
+      "label": "Show Banner",
+      "help_text": "Toggle the announcement bar on or off.",
+      "required": false,
+      "locked": false,
+      "type": "boolean",
+      "default": true
+    },
+    {
+      "id": "background_color",
+      "name": "background_color",
+      "label": "Background Color",
+      "help_text": "Background color for the announcement bar.",
+      "required": false,
+      "locked": false,
+      "type": "color",
+      "default": {
+        "color": "#F5A623",
+        "opacity": 100
+      }
+    },
+    {
+      "id": "banner_text",
+      "name": "banner_text",
+      "label": "Banner Text",
+      "help_text": "Main message text. Use bold for emphasis.",
+      "required": false,
+      "locked": false,
+      "type": "richtext",
+      "default": "<strong>🔥 LIVE EVENT:</strong> New In-Person Marketing Workshop — Las Vegas, NV · Oct 14–15"
+    },
+    {
+      "id": "cta_text",
+      "name": "cta_text",
+      "label": "CTA Link Text",
+      "help_text": "Text for the call-to-action link. Leave blank to hide.",
+      "required": false,
+      "locked": false,
+      "type": "text",
+      "default": "Secure Your Seat →"
+    },
+    {
+      "id": "cta_link",
+      "name": "cta_link",
+      "label": "CTA Link",
+      "help_text": "Where the CTA link points to.",
+      "required": false,
+      "locked": false,
+      "type": "link",
+      "default": {
+        "url": {
+          "type": "EXTERNAL",
+          "href": "#tickets"
+        },
+        "open_in_new_tab": false,
+        "no_follow": false
+      }
+    }
+  ]
+}

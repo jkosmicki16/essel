@@ -1,0 +1,104 @@
+{
+  "label": "Stats & Credibility Banner",
+  "css_assets": [],
+  "external_js": [],
+  "global": false,
+  "help_text": "Full-width section displaying key metrics or credibility stats (e.g. revenue, views, attendees). Supports optional background image.",
+  "host_template_types": ["PAGE"],
+  "icon": "stats",
+  "is_available_for_new_content": true,
+  "js_assets": [],
+  "other_assets": [],
+  "smart_type": "NOT_SMART",
+  "tags": ["stats", "credibility", "metrics"],
+  "fields": [
+    {
+      "id": "section_heading",
+      "name": "section_heading",
+      "label": "Eyebrow / Section Label",
+      "help_text": "Small uppercase label above the stats row.",
+      "required": false,
+      "locked": false,
+      "type": "text",
+      "default": "The Numbers Don't Lie"
+    },
+    {
+      "id": "stats",
+      "name": "stats",
+      "label": "Stats",
+      "help_text": "Add 2–5 statistics to display in a row.",
+      "type": "group",
+      "occurrence": {
+        "min": 1,
+        "max": 5,
+        "default": 4,
+        "sorting_label_field": "label"
+      },
+      "default": [
+        {
+          "number": "$100M+",
+          "label": "In Ad Spend Managed"
+        },
+        {
+          "number": "50M+",
+          "label": "YouTube Views"
+        },
+        {
+          "number": "30+",
+          "label": "Companies in Portfolio"
+        },
+        {
+          "number": "2,000+",
+          "label": "Workshop Alumni"
+        }
+      ],
+      "children": [
+        {
+          "id": "stat_number",
+          "name": "number",
+          "label": "Stat Number / Value",
+          "help_text": "e.g. '$100M+', '50,000', '97%'",
+          "required": false,
+          "locked": false,
+          "type": "text",
+          "default": "$0"
+        },
+        {
+          "id": "stat_label",
+          "name": "label",
+          "label": "Stat Label",
+          "help_text": "Short descriptor below the number.",
+          "required": false,
+          "locked": false,
+          "type": "text",
+          "default": "Stat Description"
+        }
+      ]
+    },
+    {
+      "id": "subtext",
+      "name": "subtext",
+      "label": "Sub-text",
+      "help_text": "Optional small text below the stats row.",
+      "required": false,
+      "locked": false,
+      "type": "text",
+      "default": ""
+    },
+    {
+      "id": "background_image",
+      "name": "background_image",
+      "label": "Background Image",
+      "help_text": "Optional background image. A dark overlay is applied automatically.",
+      "required": false,
+      "locked": false,
+      "type": "image",
+      "default": {
+        "src": "",
+        "alt": "",
+        "width": 1920,
+        "height": 600
+      }
+    }
+  ]
+}

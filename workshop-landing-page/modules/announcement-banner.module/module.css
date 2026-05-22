@@ -1,0 +1,80 @@
+.wlp-announcement-banner {
+  width: 100%;
+  position: relative;
+  z-index: 950;
+}
+
+.wlp-announcement-banner__inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 11px 48px 11px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+.wlp-announcement-banner__text {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #0D0D0D;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.wlp-announcement-banner__text strong {
+  font-weight: 800;
+}
+
+.wlp-announcement-banner__cta {
+  display: inline-flex;
+  align-items: center;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+  color: #0D0D0D;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  white-space: nowrap;
+  transition: opacity 0.2s ease;
+}
+
+.wlp-announcement-banner__cta:hover {
+  opacity: 0.7;
+  color: #0D0D0D;
+}
+
+.wlp-announcement-banner__close {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  color: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.wlp-announcement-banner__close:hover {
+  color: #0D0D0D;
+  background-color: rgba(0,0,0,0.1);
+}
+
+@media (max-width: 600px) {
+  .wlp-announcement-banner__inner {
+    gap: 10px;
+    padding: 10px 44px 10px 16px;
+  }
+
+  .wlp-announcement-banner__text {
+    font-size: 13px;
+  }
+}

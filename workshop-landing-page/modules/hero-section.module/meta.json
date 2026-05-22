@@ -1,0 +1,130 @@
+{
+  "label": "Hero Section",
+  "css_assets": [],
+  "external_js": [],
+  "global": false,
+  "help_text": "Full-width hero section with eyebrow label, headline, subheadline, body copy, and primary CTA. Supports background image or solid color.",
+  "host_template_types": ["PAGE"],
+  "icon": "header",
+  "is_available_for_new_content": true,
+  "js_assets": [],
+  "other_assets": [],
+  "smart_type": "NOT_SMART",
+  "tags": ["hero", "header", "cta"],
+  "fields": [
+    {
+      "id": "eyebrow_text",
+      "name": "eyebrow_text",
+      "label": "Eyebrow / Label Text",
+      "help_text": "Small uppercase label above the headline (e.g. 'LIVE | New In-Person Marketing Workshop').",
+      "required": false,
+      "locked": false,
+      "type": "text",
+      "default": "LIVE | New In-Person Marketing Workshop | Las Vegas, NV"
+    },
+    {
+      "id": "headline",
+      "name": "headline",
+      "label": "Main Headline (H1)",
+      "help_text": "Primary headline. Keep to 6–10 words for maximum impact.",
+      "required": false,
+      "locked": false,
+      "type": "text",
+      "default": "The Workshop That Actually Grows Your Business"
+    },
+    {
+      "id": "subheadline",
+      "name": "subheadline",
+      "label": "Sub-Headline (H2)",
+      "help_text": "Supporting line below the H1.",
+      "required": false,
+      "locked": false,
+      "type": "text",
+      "default": "Two days. Real frameworks. Real results. Come learn how the top 1% acquire customers."
+    },
+    {
+      "id": "body_copy",
+      "name": "body_copy",
+      "label": "Body Copy",
+      "help_text": "Short paragraph below the subheadline.",
+      "required": false,
+      "locked": false,
+      "type": "richtext",
+      "default": "<p>Join 300+ founders, operators, and marketers for an intensive hands-on workshop. Walk away with a 90-day marketing playbook you can execute immediately.</p>"
+    },
+    {
+      "id": "cta_text",
+      "name": "cta_text",
+      "label": "CTA Button Text",
+      "required": false,
+      "locked": false,
+      "type": "text",
+      "default": "Secure Your Seat — Get Tickets"
+    },
+    {
+      "id": "cta_link",
+      "name": "cta_link",
+      "label": "CTA Button Link",
+      "required": false,
+      "locked": false,
+      "type": "link",
+      "default": {
+        "url": {
+          "type": "EXTERNAL",
+          "href": "#tickets"
+        },
+        "open_in_new_tab": false,
+        "no_follow": false
+      }
+    },
+    {
+      "id": "cta_subtext",
+      "name": "cta_subtext",
+      "label": "CTA Sub-text",
+      "help_text": "Small italic note below the CTA (e.g. 'Limited seats. No refunds.').",
+      "required": false,
+      "locked": false,
+      "type": "text",
+      "default": "Limited seats available. Tickets are non-refundable."
+    },
+    {
+      "id": "background_image",
+      "name": "background_image",
+      "label": "Background Image",
+      "help_text": "Optional full-bleed background image. Leave empty to use background color instead.",
+      "required": false,
+      "locked": false,
+      "type": "image",
+      "default": {
+        "src": "",
+        "alt": "",
+        "width": 1920,
+        "height": 1080,
+        "loading": "eager"
+      }
+    },
+    {
+      "id": "background_image_position",
+      "name": "background_image_position",
+      "label": "Background Image Position",
+      "help_text": "CSS background-position value (e.g. 'center', 'top center', '50% 30%').",
+      "required": false,
+      "locked": false,
+      "type": "text",
+      "default": "center"
+    },
+    {
+      "id": "background_color",
+      "name": "background_color",
+      "label": "Background Color",
+      "help_text": "Used when no background image is set.",
+      "required": false,
+      "locked": false,
+      "type": "color",
+      "default": {
+        "color": "#0D0D0D",
+        "opacity": 100
+      }
+    }
+  ]
+}

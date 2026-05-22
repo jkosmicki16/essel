@@ -1,0 +1,43 @@
+<section class="wlp-testimonials wlp-fade-in">
+  <div class="wlp-container">
+
+    {% if module.section_heading %}
+    <div class="wlp-testimonials__header">
+      <h2 class="wlp-heading-lg wlp-testimonials__heading">{{ module.section_heading }}</h2>
+    </div>
+    {% endif %}
+
+    <!-- Video embed -->
+    {% if module.video_embed %}
+    <div class="wlp-testimonials__video">
+      <div class="wlp-testimonials__video-inner">
+        {{ module.video_embed }}
+      </div>
+    </div>
+    {% endif %}
+
+    <!-- Testimonial images / screenshots grid -->
+    {% if module.testimonials and module.testimonials|length > 0 %}
+    <div class="wlp-testimonials__grid">
+      {% for item in module.testimonials %}
+      <div class="wlp-testimonials__card">
+        {% if item.image.src %}
+        <img
+          src="{{ item.image.src }}"
+          alt="{{ item.image.alt | default('Testimonial') }}"
+          loading="lazy"
+          class="wlp-testimonials__img"
+          {% if item.image.width %}width="{{ item.image.width }}"{% endif %}
+          {% if item.image.height %}height="{{ item.image.height }}"{% endif %}
+        >
+        {% endif %}
+        {% if item.attribution %}
+        <p class="wlp-testimonials__attribution">— {{ item.attribution }}</p>
+        {% endif %}
+      </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+  </div>
+</section>

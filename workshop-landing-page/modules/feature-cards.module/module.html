@@ -1,0 +1,62 @@
+<section class="wlp-features wlp-fade-in">
+  <div class="wlp-container">
+
+    <div class="wlp-features__header">
+      {% if module.eyebrow %}
+      <p class="wlp-eyebrow">{{ module.eyebrow }}</p>
+      {% endif %}
+      {% if module.section_heading %}
+      <h2 class="wlp-heading-lg wlp-features__heading">{{ module.section_heading }}</h2>
+      {% endif %}
+      {% if module.section_subtext %}
+      <p class="wlp-body wlp-features__subtext">{{ module.section_subtext }}</p>
+      {% endif %}
+    </div>
+
+    {% if module.cards and module.cards|length > 0 %}
+    <div class="wlp-features__grid">
+      {% for card in module.cards %}
+      <article class="wlp-features__card">
+        {% if card.number %}
+        <div class="wlp-features__card-number" aria-hidden="true">{{ card.number }}</div>
+        {% endif %}
+
+        {% if card.image.src %}
+        <div class="wlp-features__card-img-wrap">
+          <img
+            src="{{ card.image.src }}"
+            alt="{{ card.image.alt | default(card.title) }}"
+            loading="lazy"
+            class="wlp-features__card-img"
+          >
+        </div>
+        {% endif %}
+
+        <div class="wlp-features__card-body">
+          {% if card.title %}
+          <h3 class="wlp-features__card-title">{{ card.title }}</h3>
+          {% endif %}
+          {% if card.description %}
+          <div class="wlp-features__card-desc">{{ card.description }}</div>
+          {% endif %}
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+    {% if module.cta_text and module.cta_link.url.href %}
+    <div class="wlp-features__cta-wrap">
+      <a href="{{ module.cta_link.url.href }}"
+         class="wlp-btn wlp-btn--primary"
+         {% if module.cta_link.open_in_new_tab %}target="_blank" rel="noopener noreferrer"{% endif %}>
+        {{ module.cta_text }}
+      </a>
+      {% if module.cta_subtext %}
+      <p class="wlp-features__cta-subtext">{{ module.cta_subtext }}</p>
+      {% endif %}
+    </div>
+    {% endif %}
+
+  </div>
+</section>

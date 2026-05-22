@@ -1,0 +1,218 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: Workshop Landing Page
+  screenshotPath: ../images/template-preview.png
+-->
+<!DOCTYPE html>
+<html lang="{{ html_lang }}" prefix="og: http://ogp.me/ns#">
+<head>
+  {{ standard_header_includes }}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ content.html_title }}</title>
+  <meta name="description" content="{{ content.meta_description }}">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Template Styles -->
+  {{ require_css(get_asset_url('../css/workshop-landing-page.css')) }}
+</head>
+<body class="wlp-page">
+
+  <!-- ============================================================
+       ANNOUNCEMENT BANNER (sticky top bar)
+       ============================================================ -->
+  {% dnd_area "announcement_area" label="Announcement Banner Area" %}
+    {% dnd_section
+      padding={ "top": 0, "bottom": 0, "left": 0, "right": 0 }
+      margin={ "top": 0, "bottom": 0 }
+    %}
+      {% dnd_column width=12 %}
+        {% dnd_row %}
+          {% dnd_module
+            path="../modules/announcement-banner"
+            label="Announcement Banner"
+          %}
+          {% end_dnd_module %}
+        {% end_dnd_row %}
+      {% end_dnd_column %}
+    {% end_dnd_section %}
+  {% end_dnd_area %}
+
+  <!-- ============================================================
+       NAVIGATION
+       ============================================================ -->
+  <nav class="wlp-nav" id="wlp-nav" role="navigation" aria-label="Main navigation">
+    <div class="wlp-container">
+      <div class="wlp-nav__inner">
+
+        <!-- Logo -->
+        <a href="{{ content.absolute_url | default('/') }}" class="wlp-nav__logo" aria-label="Home">
+          {% module "logo" path="@hubspot/linked_image"
+            label="Navigation Logo"
+            img={ "src": "https://via.placeholder.com/160x40/0D0D0D/F5A623?text=LOGO", "alt": "Workshop Logo", "width": 160, "height": 40 }
+            link_href="/"
+            open_in_new_tab=false
+          %}
+        </a>
+
+        <!-- Mobile Toggle -->
+        <button class="wlp-nav__toggle" id="wlp-nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="wlp-nav-menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <!-- Nav Menu -->
+        <div class="wlp-nav__menu" id="wlp-nav-menu">
+          {% module "main_menu" path="@hubspot/menu"
+            label="Main Navigation Menu"
+          %}
+        </div>
+
+        <!-- Nav CTA -->
+        <a href="#tickets" class="wlp-btn wlp-btn--sm wlp-nav__cta">Get Tickets</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============================================================
+       MAIN CONTENT — Drag & Drop Area
+       ============================================================ -->
+  <main id="main-content" role="main">
+    {% dnd_area "main_content" label="Page Content Sections" %}
+
+      <!-- HERO SECTION -->
+      {% dnd_section
+        background_color={ "r": 13, "g": 13, "b": 13, "a": 1 }
+        padding={ "top": 0, "bottom": 0, "left": 0, "right": 0 }
+      %}
+        {% dnd_column width=12 %}
+          {% dnd_row %}
+            {% dnd_module
+              path="../modules/hero-section"
+              label="Hero Section"
+            %}
+            {% end_dnd_module %}
+          {% end_dnd_row %}
+        {% end_dnd_column %}
+      {% end_dnd_section %}
+
+      <!-- TESTIMONIALS / SOCIAL PROOF SECTION -->
+      {% dnd_section
+        background_color={ "r": 13, "g": 13, "b": 13, "a": 1 }
+        padding={ "top": 0, "bottom": 0, "left": 0, "right": 0 }
+      %}
+        {% dnd_column width=12 %}
+          {% dnd_row %}
+            {% dnd_module
+              path="../modules/testimonials"
+              label="Testimonials Section"
+            %}
+            {% end_dnd_module %}
+          {% end_dnd_row %}
+        {% end_dnd_column %}
+      {% end_dnd_section %}
+
+      <!-- FEATURE CARDS SECTION -->
+      {% dnd_section
+        background_color={ "r": 13, "g": 13, "b": 13, "a": 1 }
+        padding={ "top": 0, "bottom": 0, "left": 0, "right": 0 }
+      %}
+        {% dnd_column width=12 %}
+          {% dnd_row %}
+            {% dnd_module
+              path="../modules/feature-cards"
+              label="What You'll Get — Feature Cards"
+            %}
+            {% end_dnd_module %}
+          {% end_dnd_row %}
+        {% end_dnd_column %}
+      {% end_dnd_section %}
+
+      <!-- STATS / CREDIBILITY BANNER -->
+      {% dnd_section
+        background_color={ "r": 13, "g": 13, "b": 13, "a": 1 }
+        padding={ "top": 0, "bottom": 0, "left": 0, "right": 0 }
+      %}
+        {% dnd_column width=12 %}
+          {% dnd_row %}
+            {% dnd_module
+              path="../modules/stats-banner"
+              label="Stats & Credibility Banner"
+            %}
+            {% end_dnd_module %}
+          {% end_dnd_row %}
+        {% end_dnd_column %}
+      {% end_dnd_section %}
+
+      <!-- FAQ SECTION -->
+      {% dnd_section
+        background_color={ "r": 13, "g": 13, "b": 13, "a": 1 }
+        padding={ "top": 0, "bottom": 0, "left": 0, "right": 0 }
+      %}
+        {% dnd_column width=12 %}
+          {% dnd_row %}
+            {% dnd_module
+              path="../modules/faq-section"
+              label="FAQ Section"
+            %}
+            {% end_dnd_module %}
+          {% end_dnd_row %}
+        {% end_dnd_column %}
+      {% end_dnd_section %}
+
+    {% end_dnd_area %}
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="wlp-footer" role="contentinfo">
+    <div class="wlp-container">
+      <div class="wlp-footer__top">
+
+        <div class="wlp-footer__logo">
+          {% module "footer_logo" path="@hubspot/linked_image"
+            label="Footer Logo"
+            img={ "src": "https://via.placeholder.com/140x35/0D0D0D/F5A623?text=LOGO", "alt": "Workshop Logo", "width": 140, "height": 35 }
+            link_href="/"
+            open_in_new_tab=false
+          %}
+        </div>
+
+        <div class="wlp-footer__links">
+          {% module "footer_menu" path="@hubspot/menu"
+            label="Footer Navigation Menu"
+          %}
+        </div>
+
+      </div>
+
+      <div class="wlp-footer__bottom">
+        <div class="wlp-footer__disclaimer">
+          {% module "footer_disclaimer" path="@hubspot/rich_text"
+            label="Footer Disclaimer / Legal Text"
+            html="<p>© {{ 'now' | strftime('%Y') }} Workshop Co. All rights reserved. Results not typical. Individual outcomes vary based on effort, experience, and market conditions. This is not a get-rich-quick scheme. All trademarks are property of their respective owners.</p>"
+          %}
+        </div>
+        <div class="wlp-footer__legal-links">
+          {% module "legal_menu" path="@hubspot/menu"
+            label="Legal Links (Privacy, Terms)"
+          %}
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Template JS -->
+  {{ require_js(get_asset_url('../js/workshop-landing-page.js'), { "position": "footer" }) }}
+  {{ standard_footer_includes }}
+
+</body>
+</html>

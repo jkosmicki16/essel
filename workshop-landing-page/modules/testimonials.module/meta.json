@@ -1,0 +1,103 @@
+{
+  "label": "Testimonials / Social Proof",
+  "css_assets": [],
+  "external_js": [],
+  "global": false,
+  "help_text": "Social proof section with a section heading, optional video embed, and a repeating grid of testimonial images or screenshots.",
+  "host_template_types": ["PAGE"],
+  "icon": "quote",
+  "is_available_for_new_content": true,
+  "js_assets": [],
+  "other_assets": [],
+  "smart_type": "NOT_SMART",
+  "tags": ["testimonials", "social-proof", "video"],
+  "fields": [
+    {
+      "id": "section_heading",
+      "name": "section_heading",
+      "label": "Section Heading",
+      "required": false,
+      "locked": false,
+      "type": "text",
+      "default": "What people are saying about our past workshops"
+    },
+    {
+      "id": "video_embed",
+      "name": "video_embed",
+      "label": "Video Embed Code",
+      "help_text": "Paste an iframe embed code from YouTube, Vimeo, or Wistia. The module handles responsive sizing automatically.",
+      "required": false,
+      "locked": false,
+      "type": "html",
+      "default": "<iframe src=\"https://www.youtube.com/embed/dQw4w9WgXcQ\" title=\"Workshop testimonial video\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>"
+    },
+    {
+      "id": "testimonials",
+      "name": "testimonials",
+      "label": "Testimonial Images",
+      "help_text": "Upload screenshots of tweets, reviews, or testimonials. Add between 1 and 6 items.",
+      "type": "group",
+      "occurrence": {
+        "min": 1,
+        "max": 6,
+        "default": 3,
+        "sorting_label_field": "attribution"
+      },
+      "default": [
+        {
+          "image": {
+            "src": "https://via.placeholder.com/400x280/1A1A1A/F5A623?text=Testimonial+1",
+            "alt": "Workshop testimonial screenshot",
+            "width": 400,
+            "height": 280
+          },
+          "attribution": "@username"
+        },
+        {
+          "image": {
+            "src": "https://via.placeholder.com/400x280/1A1A1A/F5A623?text=Testimonial+2",
+            "alt": "Workshop testimonial screenshot",
+            "width": 400,
+            "height": 280
+          },
+          "attribution": "@username"
+        },
+        {
+          "image": {
+            "src": "https://via.placeholder.com/400x280/1A1A1A/F5A623?text=Testimonial+3",
+            "alt": "Workshop testimonial screenshot",
+            "width": 400,
+            "height": 280
+          },
+          "attribution": "@username"
+        }
+      ],
+      "children": [
+        {
+          "id": "testimonial_image",
+          "name": "image",
+          "label": "Testimonial Image / Screenshot",
+          "required": false,
+          "locked": false,
+          "type": "image",
+          "default": {
+            "src": "https://via.placeholder.com/400x280/1A1A1A/F5A623?text=Testimonial",
+            "alt": "Testimonial screenshot",
+            "width": 400,
+            "height": 280
+          }
+        },
+        {
+          "id": "testimonial_attribution",
+          "name": "attribution",
+          "label": "Attribution (name or handle)",
+          "help_text": "Optional — shown below the image.",
+          "required": false,
+          "locked": false,
+          "type": "text",
+          "default": ""
+        }
+      ]
+    }
+  ]
+}

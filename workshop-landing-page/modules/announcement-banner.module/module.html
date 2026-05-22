@@ -1,0 +1,22 @@
+{% if module.show_banner %}
+<div class="wlp-announcement-banner"
+     style="background-color: {{ module.background_color.color }};">
+  <div class="wlp-announcement-banner__inner">
+    <div class="wlp-announcement-banner__text">
+      {{ module.banner_text }}
+    </div>
+    {% if module.cta_text and module.cta_link.url.href %}
+    <a href="{{ module.cta_link.url.href }}"
+       class="wlp-announcement-banner__cta"
+       {% if module.cta_link.open_in_new_tab %}target="_blank" rel="noopener noreferrer"{% endif %}>
+      {{ module.cta_text }}
+    </a>
+    {% endif %}
+    <button class="wlp-announcement-banner__close" aria-label="Close announcement">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M1 1L13 13M13 1L1 13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </button>
+  </div>
+</div>
+{% endif %}

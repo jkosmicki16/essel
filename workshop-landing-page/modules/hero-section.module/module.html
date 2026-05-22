@@ -1,0 +1,47 @@
+<section class="wlp-hero wlp-fade-in"
+  {% if module.background_image.src %}
+  style="background-image: url('{{ module.background_image.src }}'); background-size: cover; background-position: {{ module.background_image_position | default('center') }};"
+  {% elif module.background_color.color %}
+  style="background-color: {{ module.background_color.color }};"
+  {% else %}
+  style="background-color: #0D0D0D;"
+  {% endif %}
+>
+  <div class="wlp-hero__overlay" aria-hidden="true"></div>
+
+  <div class="wlp-container wlp-hero__container">
+    <div class="wlp-hero__content">
+
+      {% if module.eyebrow_text %}
+      <p class="wlp-eyebrow wlp-hero__eyebrow">{{ module.eyebrow_text }}</p>
+      {% endif %}
+
+      {% if module.headline %}
+      <h1 class="wlp-heading-xl wlp-hero__headline">{{ module.headline }}</h1>
+      {% endif %}
+
+      {% if module.subheadline %}
+      <h2 class="wlp-hero__subheadline">{{ module.subheadline }}</h2>
+      {% endif %}
+
+      {% if module.body_copy %}
+      <div class="wlp-body wlp-hero__body">{{ module.body_copy }}</div>
+      {% endif %}
+
+      {% if module.cta_text and module.cta_link.url.href %}
+      <div class="wlp-hero__cta-wrap">
+        <a href="{{ module.cta_link.url.href }}"
+           class="wlp-btn wlp-btn--primary"
+           id="tickets"
+           {% if module.cta_link.open_in_new_tab %}target="_blank" rel="noopener noreferrer"{% endif %}>
+          {{ module.cta_text }}
+        </a>
+        {% if module.cta_subtext %}
+        <p class="wlp-hero__cta-subtext">{{ module.cta_subtext }}</p>
+        {% endif %}
+      </div>
+      {% endif %}
+
+    </div>
+  </div>
+</section>
