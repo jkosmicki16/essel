@@ -1,8 +1,7 @@
 <!--
   templateType: page
   isAvailableForNewContent: true
-  label: Workshop Landing Page
-  screenshotPath: ../images/template-preview.png
+  label: Workshop Landing Page — ACQ Style
 -->
 <!DOCTYPE html>
 <html lang="{{ html_lang }}" prefix="og: http://ogp.me/ns#">
@@ -13,206 +12,845 @@
   <title>{{ content.html_title }}</title>
   <meta name="description" content="{{ content.meta_description }}">
 
-  <!-- Google Fonts -->
+  <!-- Poppins — matches acquisition.com exactly -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700;800&display=swap" rel="stylesheet">
 
-  <!-- Template Styles -->
-  {{ require_css(get_asset_url('../css/workshop-landing-page.css')) }}
+  <style>
+/* ═══════════════════════════════════════════════════════════════════
+   RESET & BASE  (matches acquisition.com spec)
+═══════════════════════════════════════════════════════════════════ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: Poppins, sans-serif;
+  background: #fff;
+  color: #000;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+img { max-width: 100%; height: auto; display: block; }
+a { text-decoration: none; }
+
+/* ───── Layout ───── */
+.page-width {
+  max-width: 1140px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.boxed-width {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   TOP BANNER  — #F6D234 yellow
+═══════════════════════════════════════════════════════════════════ */
+.top-banner {
+  background: #F6D234;
+  padding: 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+.top-banner__inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 48px 8px 20px;
+  gap: 8px;
+  flex-wrap: wrap;
+  position: relative;
+}
+.top-banner__new {
+  background: #fff;
+  border-radius: 3px;
+  color: #ee2f2f;
+  font-weight: 800;
+  font-size: 10px;
+  padding: 2px 6px;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+.top-banner__text {
+  font-family: Poppins;
+  font-weight: 700;
+  font-size: 13px;
+  color: #000;
+  text-align: center;
+}
+.top-banner__link {
+  font-family: Poppins;
+  font-weight: 700;
+  font-size: 13px;
+  color: #000;
+  text-decoration: underline;
+}
+.top-banner__close {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: #000;
+  padding: 4px 8px;
+  line-height: 1;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   NAVIGATION  — white background
+═══════════════════════════════════════════════════════════════════ */
+.site-header {
+  background: #fff;
+  border-bottom: 1px solid #e5e5e5;
+  position: sticky;
+  top: 37px; /* banner height */
+  z-index: 999;
+}
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+  gap: 16px;
+}
+.header-logo {
+  flex-shrink: 0;
+}
+.header-logo img { height: 30px; width: auto; }
+.header-logo-text {
+  font-family: Poppins;
+  font-weight: 800;
+  font-size: 22px;
+  color: #000;
+  letter-spacing: -0.02em;
+}
+.header-menu-area {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex: 1;
+  justify-content: center;
+}
+.header-menu-area a {
+  font-family: Poppins;
+  font-size: 13px;
+  font-weight: 600;
+  color: #000;
+  padding: 6px 10px;
+  border-radius: 4px;
+  transition: background 0.15s;
+  white-space: nowrap;
+}
+.header-menu-area a:hover { background: #f5f5f5; }
+.header-nav-cta {
+  background: #F6D234;
+  color: #000 !important;
+  font-weight: 700 !important;
+  padding: 9px 18px !important;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+.header-nav-cta:hover { background: #f0cc20 !important; }
+.header-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+}
+.header-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: #000;
+  border-radius: 2px;
+  transition: transform 0.2s, opacity 0.2s;
+}
+.header-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.header-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.header-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* ═══════════════════════════════════════════════════════════════════
+   HERO  — #006AB6 blue
+═══════════════════════════════════════════════════════════════════ */
+.hero-section {
+  background: #006AB6;
+  padding: 70px 0 0;
+  text-align: center;
+}
+.atf__heading h1 {
+  font-family: Poppins;
+  font-size: 52px;
+  font-weight: 800;
+  font-style: normal;
+  color: #fff;
+  margin: 0 auto;
+  max-width: 900px;
+  line-height: 1.1;
+}
+.hero-sub h2 {
+  font-family: Poppins;
+  font-size: 28px;
+  font-weight: 400;
+  color: #fff;
+  margin: 12px auto 0;
+  max-width: 800px;
+  line-height: 1.4;
+}
+.hero-video {
+  margin: 36px auto 0;
+  max-width: 820px;
+  padding: 0 20px;
+}
+.hero-video-inner {
+  position: relative;
+  padding-bottom: 56.25%;
+  background: rgba(0,0,0,0.3);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.hero-video-inner iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   MAIN BODY SECTION  — #005993 darker blue
+═══════════════════════════════════════════════════════════════════ */
+.body-section {
+  background: #005993;
+  padding: 40px 0 60px;
+}
+
+/* ── Intro paragraph ── */
+.intro-text {
+  text-align: center;
+  font-family: Poppins;
+  font-weight: 400;
+  font-size: 22px;
+  color: #fff;
+  margin: 0 auto 30px;
+  max-width: 860px;
+  line-height: 1.6;
+}
+.intro-text strong { font-weight: 700; }
+
+/* ── CTA button — the one consistent button style across the page ── */
+.cta-btn {
+  display: block;
+  background: #F6D234;
+  font-family: Poppins;
+  font-weight: 700;
+  font-size: 24px;
+  color: #000;
+  padding: 22px 20px;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  width: 100%;
+  max-width: 620px;
+  margin: 0 auto;
+  text-decoration: none;
+  transition: background 0.15s, transform 0.15s;
+  line-height: 1.2;
+}
+.cta-btn:hover { background: #f0cc20; transform: translateY(-1px); color: #000; }
+
+/* ── Social proof / testimonials ── */
+.sec-title {
+  text-align: center;
+  margin-top: 60px;
+}
+.sec-title h2 {
+  font-family: Poppins;
+  font-weight: 400;
+  font-size: 38px;
+  color: #fff;
+  margin-bottom: 30px;
+  line-height: 1.2;
+}
+.testimonial-video-wrap {
+  max-width: 660px;
+  margin: 0 auto 30px;
+}
+.testimonial-video-inner {
+  position: relative;
+  padding-bottom: 133.33%; /* portrait 3:4 ratio as on the original */
+  background: rgba(0,0,0,0.2);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.testimonial-video-inner iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+.reviews-img {
+  display: block;
+  margin: 20px auto;
+  max-width: 75%;
+  border-radius: 8px;
+}
+
+/* ── "What you'll get" banner with bg image ── */
+.bg-heading-container {
+  position: relative;
+  margin: 50px 0 0;
+  text-align: center;
+}
+.bg-heading-container .bg {
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
+  display: block;
+}
+.bg-heading {
+  font-family: Poppins;
+  font-weight: 700;
+  font-size: 32px;
+  color: #000;
+  padding: 32px 20px;
+  text-align: center;
+  background-image: url('https://cdn-3.convertexperiments.com/uf/1004313/100411948/section-bg-img_68b8c73fd1c52.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.bg-heading u { text-decoration: underline; }
+
+/* ── Benefit / feature cards ── */
+.benefits {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin: 40px auto;
+  max-width: 1140px;
+  padding: 0 20px;
+}
+.benefits-box {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.benefits-box > span {
+  font-family: Poppins;
+  font-weight: 700;
+  font-size: 20px;
+  color: #fff;
+}
+.benefits-box img {
+  width: 100%;
+  border-radius: 8px;
+  aspect-ratio: 3/2;
+  object-fit: cover;
+  background: rgba(255,255,255,0.1);
+}
+.benefits-box p {
+  font-family: Poppins;
+  font-weight: 400;
+  font-size: 16px;
+  color: #fff;
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* ── More reviews ── */
+.more-revs {
+  text-align: center;
+  margin-top: 40px;
+}
+.more-revs img {
+  max-width: 75%;
+  margin: 0 auto;
+  border-radius: 8px;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   BOOKING FORM SECTION  — white
+═══════════════════════════════════════════════════════════════════ */
+.booking-section {
+  background: #fff;
+  padding: 60px 20px;
+}
+.booking-inner {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+.booking-inner h2 {
+  font-family: Poppins;
+  font-weight: 700;
+  font-size: 32px;
+  color: #000;
+  margin-bottom: 12px;
+}
+.booking-inner p {
+  font-family: Poppins;
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 28px;
+}
+.booking-cta-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+.booking-note {
+  font-family: Poppins;
+  font-size: 13px;
+  color: #666;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   FAQ SECTION  — white with blue accordion headers
+═══════════════════════════════════════════════════════════════════ */
+.faq-sec {
+  background: #fff;
+  padding: 40px 0;
+}
+.faq-sec .page-width {
+  max-width: 860px;
+}
+.accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 50px;
+}
+.accordion-item { }
+.accordion-header {
+  background: #006ab6;
+  border-radius: 8px;
+  padding: 24px 24px;
+  font-family: Poppins, sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  transition: background 0.15s;
+  user-select: none;
+}
+.accordion-header:hover { background: #005fa3; }
+.accordion-header.open { border-radius: 8px 8px 0 0; }
+.accordion-icon {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: 300;
+  transition: transform 0.25s;
+}
+.accordion-header.open .accordion-icon { transform: rotate(45deg); }
+.accordion-content {
+  display: none;
+  background: #fff;
+  border-radius: 0 0 8px 8px;
+  border: 1px solid #e5e5e5;
+  border-top: none;
+}
+.accordion-content.open { display: block; }
+.accordion-content-inner {
+  padding: 24px 48px 28px;
+  font-family: Poppins, sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  color: #333;
+  line-height: 1.7;
+}
+.accordion-content-inner p { margin-bottom: 14px; }
+.accordion-content-inner p:last-child { margin-bottom: 0; }
+.accordion-content-inner strong { color: #000; font-weight: 700; }
+
+/* ═══════════════════════════════════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════════════════════════════════ */
+.footer {
+  background: #fff;
+  padding: 48px 0 32px;
+  border-top: 1px solid #e5e5e5;
+}
+.footer__container { max-width: 1140px; margin: 0 auto; padding: 0 20px; }
+.footer-inner {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 32px;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
+}
+.footer-logo img { height: 26px; width: auto; }
+.footer-logo-text {
+  font-family: Poppins;
+  font-weight: 800;
+  font-size: 20px;
+  color: #000;
+}
+.footer-menu-area { display: flex; gap: 24px; flex-wrap: wrap; }
+.footer-menu-area a {
+  font-family: Poppins;
+  font-size: 13px;
+  font-weight: 600;
+  color: #000;
+}
+.footer-menu-area a:hover { text-decoration: underline; }
+.footer-privacy {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+.footer-privacy a {
+  font-family: Poppins;
+  font-size: 12px;
+  color: #555;
+}
+.footer-privacy a:hover { text-decoration: underline; }
+.footer__copyright {
+  font-family: Poppins;
+  font-size: 12px;
+  color: #555;
+  line-height: 1.7;
+  max-width: 900px;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════════════════════════════ */
+@media (max-width: 767px) {
+  .site-header { top: 36px; }
+
+  .atf__heading h1 { font-size: 32px !important; }
+  .hero-sub h2    { font-size: 20px !important; }
+  .hero-section   { padding-top: 30px; }
+
+  .intro-text  { font-size: 16px !important; }
+  .sec-title h2 { font-size: 28px !important; }
+  .bg-heading  { font-size: 22px !important; padding: 24px 16px; }
+  .cta-btn     { font-size: 18px !important; padding: 18px 16px; }
+
+  .benefits { grid-template-columns: 1fr; gap: 36px; }
+
+  .accordion-header        { font-size: 18px; padding: 18px 16px; }
+  .accordion-content-inner { font-size: 16px; padding: 18px 20px; }
+
+  .header-menu-area,
+  .header-nav-cta { display: none; }
+  .header-toggle { display: flex; }
+
+  .mobile-nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #fff;
+    border-top: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
+    padding: 16px 20px 20px;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .mobile-nav.open { display: flex; }
+  .mobile-nav a {
+    font-family: Poppins;
+    font-size: 16px;
+    font-weight: 600;
+    color: #000;
+    padding: 10px 4px;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  .mobile-nav a:last-child { border-bottom: none; }
+
+  .reviews-img { max-width: 90%; }
+  .more-revs img { max-width: 95%; }
+  .footer-inner { flex-direction: column; gap: 20px; }
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+  .benefits { grid-template-columns: repeat(2, 1fr); }
+  .atf__heading h1 { font-size: 40px !important; }
+}
+</style>
 </head>
-<body class="wlp-page">
+<body>
 
-  <!-- ============================================================
-       ANNOUNCEMENT BANNER (sticky top bar)
-       ============================================================ -->
-  {% dnd_area "announcement_area" label="Announcement Banner Area" %}
-    {% dnd_section
-      padding={ "top": 0, "bottom": 0, "left": 0, "right": 0 }
-      margin={ "top": 0, "bottom": 0 }
+<!-- ═══════════════════════════════════════════════════════════
+     TOP ANNOUNCEMENT BANNER
+═══════════════════════════════════════════════════════════ -->
+{% module "top_banner" path="@hubspot/rich_text"
+   label="Top Banner (edit text or delete row to hide)"
+   html='<div class="top-banner" id="top-banner"><div class="top__banner--inner top-banner__inner"><span class="top-banner__new">NEW</span><span class="top-banner__text">2026 Scaling Workshop Dates Announced:</span> <a href="#register" class="top-banner__link">Find out if you are a fit</a><button class="top-banner__close" onclick="this.closest(\"#top-banner\").style.display=\"none\";document.querySelector(\".site-header\").style.top=\"0\"" aria-label="Close">&times;</button></div></div>'
+%}
+
+<!-- ═══════════════════════════════════════════════════════════
+     NAVIGATION
+═══════════════════════════════════════════════════════════ -->
+<header class="site-header" id="site-header">
+  <div class="page-width">
+    <div class="header-inner">
+      <div class="header-logo">
+        {% module "nav_logo" path="@hubspot/rich_text"
+           label="Navigation Logo"
+           html='<a href="/" class="header-logo-text">YOUR WORKSHOP</a>'
+        %}
+      </div>
+      <nav class="header-menu-area" aria-label="Main navigation">
+        {% module "main_nav" path="@hubspot/rich_text"
+           label="Navigation Links"
+           html='<a href="#workshop">Workshop</a><a href="#what-youll-get">What You Get</a><a href="#faq">FAQ</a><a href="#register" class="header-nav-cta">Get Tickets</a>'
+        %}
+      </nav>
+      <button class="header-toggle" id="header-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <nav class="mobile-nav" id="mobile-nav">
+      <a href="#workshop">Workshop</a>
+      <a href="#what-youll-get">What You Get</a>
+      <a href="#faq">FAQ</a>
+      <a href="#register" style="color:#000;background:#F6D234;text-align:center;border-radius:4px;margin-top:8px;">Get Tickets</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ═══════════════════════════════════════════════════════════
+     HERO  — blue #006AB6
+═══════════════════════════════════════════════════════════ -->
+<div class="hero-section" id="workshop">
+  <div class="page-width">
+
+    {% module "hero_heading" path="@hubspot/rich_text"
+       label="Hero: Main Headline (H1)"
+       html='<div class="atf__heading"><h1>Is your marketing the thing limiting your business?</h1></div>'
     %}
-      {% dnd_column width=12 %}
-        {% dnd_row %}
-          {% dnd_module
-            path="../modules/announcement-banner"
-            label="Announcement Banner"
-          %}
-          {% end_dnd_module %}
-        {% end_dnd_row %}
-      {% end_dnd_column %}
-    {% end_dnd_section %}
-  {% end_dnd_area %}
 
-  <!-- ============================================================
-       NAVIGATION
-       ============================================================ -->
-  <nav class="wlp-nav" id="wlp-nav" role="navigation" aria-label="Main navigation">
-    <div class="wlp-container">
-      <div class="wlp-nav__inner">
+    {% module "hero_sub" path="@hubspot/rich_text"
+       label="Hero: Sub-Headline (H2)"
+       html='<div class="hero-sub"><h2>Join our first ever Marketing Workshop - Build a Consistent Marketing Engine with the help&nbsp;of AI.</h2></div>'
+    %}
 
-        <!-- Logo -->
-        <a href="{{ content.absolute_url | default('/') }}" class="wlp-nav__logo" aria-label="Home">
-          {% module "logo" path="@hubspot/linked_image"
-            label="Navigation Logo"
-            img={ "src": "https://via.placeholder.com/160x40/0D0D0D/F5A623?text=LOGO", "alt": "Workshop Logo", "width": 160, "height": 40 }
-            link_href="/"
-            open_in_new_tab=false
-          %}
-        </a>
+    {% module "hero_video" path="@hubspot/rich_text"
+       label="Hero: Video Embed (paste your Vimeo/YouTube iframe here)"
+       html='<div class="hero-video"><div class="hero-video-inner"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Workshop Introduction" allow="autoplay; fullscreen" allowfullscreen></iframe></div></div>'
+    %}
 
-        <!-- Mobile Toggle -->
-        <button class="wlp-nav__toggle" id="wlp-nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="wlp-nav-menu">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
+  </div>
+</div>
 
-        <!-- Nav Menu -->
-        <div class="wlp-nav__menu" id="wlp-nav-menu">
-          {% module "main_menu" path="@hubspot/menu"
-            label="Main Navigation Menu"
-          %}
-        </div>
+<!-- ═══════════════════════════════════════════════════════════
+     BODY SECTION  — darker blue #005993
+═══════════════════════════════════════════════════════════ -->
+<div class="body-section" id="what-youll-get">
+  <div class="page-width">
 
-        <!-- Nav CTA -->
-        <a href="#tickets" class="wlp-btn wlp-btn--sm wlp-nav__cta">Get Tickets</a>
-      </div>
+    {% module "intro_text" path="@hubspot/rich_text"
+       label="Body: Intro Paragraph"
+       html='<p class="intro-text">It&rsquo;s a <span style="font-weight:400;">new</span> 2-day, interactive <strong>marketing</strong> workshop where you&rsquo;ll receive personalized, <strong>actionable insights</strong> from the team that&rsquo;s scaled Acquisition.com &amp; its portfolio companies.</p>'
+    %}
+
+    {% module "cta_1" path="@hubspot/rich_text"
+       label="CTA Button #1"
+       html='<div style="text-align:center;margin:0 auto 0;"><a href="#register" class="cta-btn">I&rsquo;M READY TO GROW</a></div>'
+    %}
+
+    <!-- Social proof heading + video -->
+    {% module "testimonials_heading" path="@hubspot/rich_text"
+       label="Testimonials: Heading"
+       html='<div class="sec-title"><h2>What people are saying about our past workshops</h2></div>'
+    %}
+
+    {% module "testimonials_video" path="@hubspot/rich_text"
+       label="Testimonials: Video (paste HubSpot video or YouTube iframe)"
+       html='<div class="testimonial-video-wrap"><div class="testimonial-video-inner"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Past workshop testimonials" allow="autoplay; fullscreen" allowfullscreen></iframe></div></div>'
+    %}
+
+    {% module "testimonials_images" path="@hubspot/rich_text"
+       label="Testimonials: Review Screenshot Images (upload your testimonial collage)"
+       html='<div style="text-align:center;"><img class="reviews-img" src="https://placehold.co/860x480/005993/ffffff?text=Testimonial+Screenshots+%E2%80%94+Replace+with+your+reviews" alt="Workshop testimonials" loading="lazy"></div>'
+    %}
+
+  </div>
+
+  <!-- "What you'll get" heading on background image — full bleed -->
+  {% module "wyg_heading" path="@hubspot/rich_text"
+     label="What You'll Get: Section Heading Banner"
+     html='<div class="bg-heading-container"><div class="bg-heading">What you&rsquo;ll get at the <u>in-person</u> workshop:</div></div>'
+  %}
+
+  <!-- Benefit cards -->
+  {% module "benefits" path="@hubspot/rich_text"
+     label="What You'll Get: 3 Benefit Cards (edit title, image src, and description)"
+     html='<div class="benefits"><div class="benefits-box"><span>#1: ACQ Marketing Directors</span><img src="https://placehold.co/600x400/006ab6/ffffff?text=Marketing+Directors" alt="ACQ Marketing Directors" loading="lazy"><p>You&rsquo;ll meet with our directors to get personalized help. Everything from Paid Ads, Long-Form, Short-Form, Content, and Brand.</p></div><div class="benefits-box"><span>#2: ACQ Marketing Framework</span><img src="https://placehold.co/600x400/006ab6/ffffff?text=Marketing+Framework" alt="ACQ Marketing Framework" loading="lazy"><p>We break down all 5 links of the marketing chain (offer, message, creative, media, funnel) and show you the system we use to generate over 1.2 billion views and turn content into sales across our $250M/yr portfolio.</p></div><div class="benefits-box"><span>#3: 3-5 Tactical Next Steps</span><img src="https://placehold.co/600x400/006ab6/ffffff?text=Workshop+Photo" alt="Workshop" loading="lazy"><p>Leave with clear - actionable - next steps to fix the link in your marketing chain that&rsquo;s actually leaking. This includes a comprehensive marketing packet that we help personalize to your business.</p></div></div>'
+  %}
+
+  <div class="page-width">
+    {% module "cta_2" path="@hubspot/rich_text"
+       label="CTA Button #2 (below feature cards)"
+       html='<div style="text-align:center;margin:0 auto 40px;"><a href="#register" class="cta-btn">I&rsquo;M READY TO GROW</a></div>'
+    %}
+
+    {% module "more_reviews" path="@hubspot/rich_text"
+       label="More Review Images (upload second testimonial collage)"
+       html='<div class="more-revs"><img src="https://placehold.co/860x340/005993/ffffff?text=More+Testimonials+%E2%80%94+Replace+with+screenshots" alt="More workshop testimonials" loading="lazy"></div>'
+    %}
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     BOOKING / REGISTRATION SECTION  — white
+═══════════════════════════════════════════════════════════ -->
+<div class="booking-section" id="register">
+  <div class="booking-inner">
+    {% module "booking_content" path="@hubspot/rich_text"
+       label="Booking Section: Heading, copy, and CTA (replace with your form embed or meeting link)"
+       html='<h2>Ready to grow your marketing?</h2><p>Tickets are <strong>$5,000 per seat</strong>. Spots are extremely limited &mdash; we keep groups small so every attendee gets real time with our directors.</p><div class="booking-cta-group"><a href="#" class="cta-btn" style="display:inline-block;max-width:480px;">I&rsquo;M READY TO GROW</a><p class="booking-note">Click above to check dates &amp; availability</p></div>'
+    %}
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     FAQ ACCORDION  — white with #006AB6 headers
+═══════════════════════════════════════════════════════════ -->
+<div class="faq-sec" id="faq">
+  <div class="page-width">
+
+    <div class="accordion">
+
+      {% module "faq_q1" path="@hubspot/rich_text"
+         label="FAQ #1: What actually happens during the 2 days?"
+         html='<div class="accordion-item"><div class="accordion-header open" onclick="toggleAccordion(this)">What actually happens during the 2 days? <span class="accordion-icon">+</span></div><div class="accordion-content open"><div class="accordion-content-inner"><p>It&rsquo;s not an event. It&rsquo;s a workshop. At my office.</p><p>Expect zero motivational talks. Meaning &mdash; we get tactical.</p><p>On day one, we break down the marketing engine end to end. How we scale content using AI (cheaper than ever). How we pick topics so we never have to ask &ldquo;what should we post today?&rdquo; How we attribute sales across platforms so you actually know what&rsquo;s working. How we turn content into paid ads that print. And how we structure the team behind all of it.</p><p>This is the same stuff we use in our portfolio.</p><p>On day two, we get hands on. We separate into small groups, grouped by your revenue size. You meet with our directors (specialized in paid ads, long-form, short-form, content, and brand) to get personalized help.</p></div></div></div>'
+      %}
+
+      {% module "faq_q2" path="@hubspot/rich_text"
+         label="FAQ #2: What do I walk away with?"
+         html='<div class="accordion-item"><div class="accordion-header open" onclick="toggleAccordion(this)">What do I walk away with? <span class="accordion-icon">+</span></div><div class="accordion-content open"><div class="accordion-content-inner"><p>The aim: you walk away with 3&ndash;5 tactical next steps.</p><p>You spend time with our team. We diagnose which of the 5 links is actually leaking in YOUR business. We tailor the advice to your business size, industry, goals, and current marketing stack.</p><p>It&rsquo;s hands-on help specific to your biggest marketing constraint.</p><p>Plus; you get a thick packet w/ key takeaways &amp; strategies.</p></div></div></div>'
+      %}
+
+      {% module "faq_q3" path="@hubspot/rich_text"
+         label="FAQ #3: Is this right for my business size/industry?"
+         html='<div class="accordion-item"><div class="accordion-header open" onclick="toggleAccordion(this)">Is this right for my business size/industry? <span class="accordion-icon">+</span></div><div class="accordion-content open"><div class="accordion-content-inner"><p><strong>Size:</strong> If you are under $1M/yr this is <strong>not</strong> a fit (yet.)</p><p>If you are between <strong>$1m&ndash;$100m/yr, then we can help.</strong> How is it possible to have such a wide range?</p><p>Answer: everything implementation wise is separated by revenue. Meaning &mdash; you will be paired with businesses around your size, so we can get tactical.</p><p><strong>Industry:</strong> To make this easier, I attached a list of all the industries that we&rsquo;ve recently worked with:</p><p>Real estate, Medical, Auto, Home owners, Insurance, Healthcare, Local business, Home services, Financial services, Consumer services, B2B services, B2B Software, B2C Software, Apps, E-learning, Online businesses, and Ecommerce.</p><p>If you are one of these, chances are we can help.</p></div></div></div>'
+      %}
+
+      {% module "faq_q4" path="@hubspot/rich_text"
+         label="FAQ #4: How much are tickets?"
+         html='<div class="accordion-item"><div class="accordion-header open" onclick="toggleAccordion(this)">How much are tickets? <span class="accordion-icon">+</span></div><div class="accordion-content open"><div class="accordion-content-inner"><p>Tickets are $5k per seat. This allows us to:</p><p>1) keep the room quality high (meet &amp; network with real business owners doing real business)</p><p>2) give you access to top talent (you work with our directors that are paid $350k, $600k, $900k+ per year)</p><p>If you haven&rsquo;t made at least $5k from the free content, don&rsquo;t do it.</p><p>If you have, chances are we can help more.</p></div></div></div>'
+      %}
+
+    </div><!-- /accordion -->
+
+    {% module "faq_cta" path="@hubspot/rich_text"
+       label="FAQ: Final CTA Button"
+       html='<div style="text-align:center;margin:0 auto 50px;"><a href="#register" class="cta-btn" style="display:inline-block;max-width:580px;">I&rsquo;M READY TO GROW</a></div>'
+    %}
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════════════════════════ -->
+<footer class="footer">
+  <div class="footer__container">
+    <div class="footer-inner">
+      {% module "footer_logo" path="@hubspot/rich_text"
+         label="Footer Logo"
+         html='<div class="footer-logo"><a href="/" class="footer-logo-text">YOUR WORKSHOP</a></div>'
+      %}
+      {% module "footer_nav" path="@hubspot/rich_text"
+         label="Footer Navigation Links"
+         html='<div class="footer-menu-area"><a href="#workshop">Workshops</a><a href="#what-youll-get">What You Get</a><a href="#faq">FAQ</a><a href="#register">Get Tickets</a></div>'
+      %}
     </div>
-  </nav>
+    {% module "footer_privacy" path="@hubspot/rich_text"
+       label="Footer Privacy / Legal Links"
+       html='<div class="footer-privacy"><a href="#">Privacy Statement</a><a href="#">Terms and Conditions</a><a href="#">DMCA Policy</a><a href="#">Do Not Sell My Info</a></div>'
+    %}
+    {% module "footer_disclaimer" path="@hubspot/rich_text"
+       label="Footer Disclaimer / Copyright Text"
+       html='<div class="footer__copyright">Results are not typical and are not a guarantee of your success. Results will vary depending on education, effort, application, experience, and background. We do not give investment, tax, or other professional advice. Copyright &copy; 2026 Your Workshop, LLC. All Rights Reserved.</div>'
+    %}
+  </div>
+</footer>
 
-  <!-- ============================================================
-       MAIN CONTENT — Drag & Drop Area
-       ============================================================ -->
-  <main id="main-content" role="main">
-    {% dnd_area "main_content" label="Page Content Sections" %}
+<!-- ═══════════════════════════════════════════════════════════
+     JavaScript
+═══════════════════════════════════════════════════════════ -->
+<script>
+/* ── Accordion ── */
+function toggleAccordion(header) {
+  var isOpen    = header.classList.contains('open');
+  var content   = header.nextElementSibling;
+  var icon      = header.querySelector('.accordion-icon');
+  if (isOpen) {
+    header.classList.remove('open');
+    content.classList.remove('open');
+  } else {
+    header.classList.add('open');
+    content.classList.add('open');
+  }
+}
 
-      <!-- HERO SECTION -->
-      {% dnd_section
-        background_color={ "r": 13, "g": 13, "b": 13, "a": 1 }
-        padding={ "top": 0, "bottom": 0, "left": 0, "right": 0 }
-      %}
-        {% dnd_column width=12 %}
-          {% dnd_row %}
-            {% dnd_module
-              path="../modules/hero-section"
-              label="Hero Section"
-            %}
-            {% end_dnd_module %}
-          {% end_dnd_row %}
-        {% end_dnd_column %}
-      {% end_dnd_section %}
+/* ── Mobile nav toggle ── */
+var headerToggle = document.getElementById('header-toggle');
+var mobileNav    = document.getElementById('mobile-nav');
+if (headerToggle && mobileNav) {
+  headerToggle.addEventListener('click', function () {
+    var open = mobileNav.classList.toggle('open');
+    headerToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+}
 
-      <!-- TESTIMONIALS / SOCIAL PROOF SECTION -->
-      {% dnd_section
-        background_color={ "r": 13, "g": 13, "b": 13, "a": 1 }
-        padding={ "top": 0, "bottom": 0, "left": 0, "right": 0 }
-      %}
-        {% dnd_column width=12 %}
-          {% dnd_row %}
-            {% dnd_module
-              path="../modules/testimonials"
-              label="Testimonials Section"
-            %}
-            {% end_dnd_module %}
-          {% end_dnd_row %}
-        {% end_dnd_column %}
-      {% end_dnd_section %}
+/* ── Sticky header offset (adjust for banner height) ── */
+(function() {
+  var banner = document.getElementById('top-banner');
+  var header = document.getElementById('site-header');
+  function updateOffset() {
+    if (banner && header) {
+      var bh = banner.offsetHeight;
+      header.style.top = bh + 'px';
+    }
+  }
+  updateOffset();
+  window.addEventListener('resize', updateOffset, { passive: true });
+})();
 
-      <!-- FEATURE CARDS SECTION -->
-      {% dnd_section
-        background_color={ "r": 13, "g": 13, "b": 13, "a": 1 }
-        padding={ "top": 0, "bottom": 0, "left": 0, "right": 0 }
-      %}
-        {% dnd_column width=12 %}
-          {% dnd_row %}
-            {% dnd_module
-              path="../modules/feature-cards"
-              label="What You'll Get — Feature Cards"
-            %}
-            {% end_dnd_module %}
-          {% end_dnd_row %}
-        {% end_dnd_column %}
-      {% end_dnd_section %}
+/* ── Smooth scroll for anchor links ── */
+document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+  a.addEventListener('click', function(e) {
+    var t = document.querySelector(this.getAttribute('href'));
+    if (!t) return;
+    e.preventDefault();
+    var header = document.getElementById('site-header');
+    var offset = (header ? header.offsetHeight : 0) + 10;
+    var top = t.getBoundingClientRect().top + window.scrollY - offset;
+    window.scrollTo({ top: top, behavior: 'smooth' });
+  });
+});
+</script>
 
-      <!-- STATS / CREDIBILITY BANNER -->
-      {% dnd_section
-        background_color={ "r": 13, "g": 13, "b": 13, "a": 1 }
-        padding={ "top": 0, "bottom": 0, "left": 0, "right": 0 }
-      %}
-        {% dnd_column width=12 %}
-          {% dnd_row %}
-            {% dnd_module
-              path="../modules/stats-banner"
-              label="Stats & Credibility Banner"
-            %}
-            {% end_dnd_module %}
-          {% end_dnd_row %}
-        {% end_dnd_column %}
-      {% end_dnd_section %}
-
-      <!-- FAQ SECTION -->
-      {% dnd_section
-        background_color={ "r": 13, "g": 13, "b": 13, "a": 1 }
-        padding={ "top": 0, "bottom": 0, "left": 0, "right": 0 }
-      %}
-        {% dnd_column width=12 %}
-          {% dnd_row %}
-            {% dnd_module
-              path="../modules/faq-section"
-              label="FAQ Section"
-            %}
-            {% end_dnd_module %}
-          {% end_dnd_row %}
-        {% end_dnd_column %}
-      {% end_dnd_section %}
-
-    {% end_dnd_area %}
-  </main>
-
-  <!-- ============================================================
-       FOOTER
-       ============================================================ -->
-  <footer class="wlp-footer" role="contentinfo">
-    <div class="wlp-container">
-      <div class="wlp-footer__top">
-
-        <div class="wlp-footer__logo">
-          {% module "footer_logo" path="@hubspot/linked_image"
-            label="Footer Logo"
-            img={ "src": "https://via.placeholder.com/140x35/0D0D0D/F5A623?text=LOGO", "alt": "Workshop Logo", "width": 140, "height": 35 }
-            link_href="/"
-            open_in_new_tab=false
-          %}
-        </div>
-
-        <div class="wlp-footer__links">
-          {% module "footer_menu" path="@hubspot/menu"
-            label="Footer Navigation Menu"
-          %}
-        </div>
-
-      </div>
-
-      <div class="wlp-footer__bottom">
-        <div class="wlp-footer__disclaimer">
-          {% module "footer_disclaimer" path="@hubspot/rich_text"
-            label="Footer Disclaimer / Legal Text"
-            html="<p>© {{ 'now' | strftime('%Y') }} Workshop Co. All rights reserved. Results not typical. Individual outcomes vary based on effort, experience, and market conditions. This is not a get-rich-quick scheme. All trademarks are property of their respective owners.</p>"
-          %}
-        </div>
-        <div class="wlp-footer__legal-links">
-          {% module "legal_menu" path="@hubspot/menu"
-            label="Legal Links (Privacy, Terms)"
-          %}
-        </div>
-      </div>
-
-    </div>
-  </footer>
-
-  <!-- Template JS -->
-  {{ require_js(get_asset_url('../js/workshop-landing-page.js'), { "position": "footer" }) }}
-  {{ standard_footer_includes }}
-
+{{ standard_footer_includes }}
 </body>
 </html>
