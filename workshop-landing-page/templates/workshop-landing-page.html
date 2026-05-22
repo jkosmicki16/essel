@@ -237,20 +237,20 @@ a    { text-decoration: none; }
 .cta-wrap { text-align: center; padding: 0 20px; }
 
 /* ── TESTIMONIALS content ── */
-.sec-title { text-align: center; padding: 20px 20px 0; }
+.sec-title { text-align: center; padding: 40px 20px 10px; }
 .sec-title h2 {
   font-family: Poppins;
-  font-weight: 400;
-  font-size: 38px;
-  color: #fff;
-  margin-bottom: 30px;
+  font-weight: 700;
+  font-size: 34px;
+  color: #111;
+  margin-bottom: 24px;
   line-height: 1.2;
 }
-.testimonial-video-wrap { max-width: 660px; margin: 0 auto; padding: 0 20px; }
+.testimonial-video-wrap { max-width: 300px; margin: 0 auto; padding: 0 20px; }
 .testimonial-video-inner {
   position: relative;
   padding-bottom: 133.33%;
-  background: rgba(0,0,0,0.2);
+  background: rgba(0,0,0,0.08);
   border-radius: 8px;
   overflow: hidden;
 }
@@ -259,11 +259,39 @@ a    { text-decoration: none; }
   width: 100%; height: 100%;
   border: none;
 }
-.reviews-img {
-  display: block;
+
+/* ── SCATTERED REVIEW CARDS ── */
+.reviews-scatter {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 30px 20px 20px;
+  max-width: 820px;
   margin: 0 auto;
-  max-width: 80%;
-  border-radius: 8px;
+  position: relative;
+}
+.review-card {
+  width: 260px;
+  flex-shrink: 0;
+  position: relative;
+}
+.review-card img {
+  width: 100%;
+  border-radius: 6px;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.18);
+  display: block;
+}
+.review-card--left  { transform: rotate(-5deg) translate(20px, 18px); z-index: 1; }
+.review-card--mid   { transform: rotate(1deg); z-index: 3; }
+.review-card--right { transform: rotate(4deg) translate(-20px, 12px); z-index: 2; }
+.reviews-disclaimer {
+  text-align: center;
+  font-family: Poppins;
+  font-size: 11px;
+  color: #888;
+  max-width: 480px;
+  margin: 36px auto 0;
+  line-height: 1.65;
   padding: 0 20px;
 }
 
@@ -271,10 +299,11 @@ a    { text-decoration: none; }
 .bg-heading {
   font-family: Poppins;
   font-weight: 700;
-  font-size: 32px;
-  color: #000;
-  padding: 36px 20px;
+  font-size: 36px;
+  color: #fff;
+  padding: 52px 20px;
   text-align: center;
+  background-color: #111;
   background-image: url('https://cdn-3.convertexperiments.com/uf/1004313/100411948/section-bg-img_68b8c73fd1c52.png');
   background-repeat: no-repeat;
   background-size: cover;
@@ -605,10 +634,10 @@ a    { text-decoration: none; }
     {% end_dnd_column %}
   {% end_dnd_section %}
 
-  {# ── SOCIAL PROOF HEADING (darker blue #005993) ── #}
+  {# ── SOCIAL PROOF HEADING (light warm gray) ── #}
   {% dnd_section
-     background_color={r:0, g:89, b:147, a:1}
-     padding={top:30, bottom:10, left:0, right:0}
+     background_color={r:235, g:232, b:225, a:1}
+     padding={top:0, bottom:0, left:0, right:0}
   %}
     {% dnd_column width=12 %}
       {% dnd_row %}
@@ -621,15 +650,15 @@ a    { text-decoration: none; }
     {% end_dnd_column %}
   {% end_dnd_section %}
 
-  {# ── TESTIMONIAL VIDEO (darker blue #005993) ── #}
+  {# ── TESTIMONIAL VIDEO (light warm gray) ── #}
   {% dnd_section
-     background_color={r:0, g:89, b:147, a:1}
+     background_color={r:235, g:232, b:225, a:1}
      padding={top:0, bottom:20, left:0, right:0}
   %}
     {% dnd_column width=12 %}
       {% dnd_row %}
         {% dnd_module path="@hubspot/rich_text"
-           label="Testimonials: Video (paste HubSpot/YouTube/Vimeo iframe here)"
+           label="Testimonials: Video — paste your portrait video iframe (Wistia/Vimeo)"
            html='<div class="testimonial-video-wrap"><div class="testimonial-video-inner"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Workshop testimonials" allow="autoplay; fullscreen" allowfullscreen></iframe></div></div>'
         %}
         {% end_dnd_module %}
@@ -637,25 +666,25 @@ a    { text-decoration: none; }
     {% end_dnd_column %}
   {% end_dnd_section %}
 
-  {# ── TESTIMONIAL SCREENSHOT IMAGES (darker blue #005993) ── #}
+  {# ── TESTIMONIAL REVIEW CARDS — scattered layout (light warm gray) ── #}
   {% dnd_section
-     background_color={r:0, g:89, b:147, a:1}
-     padding={top:0, bottom:30, left:0, right:0}
+     background_color={r:235, g:232, b:225, a:1}
+     padding={top:0, bottom:50, left:0, right:0}
   %}
     {% dnd_column width=12 %}
       {% dnd_row %}
         {% dnd_module path="@hubspot/rich_text"
-           label="Testimonials: Review Screenshots (upload your collage image)"
-           html='<div style="text-align:center;"><img class="reviews-img" src="https://placehold.co/900x500/005993/ffffff?text=Your+Testimonial+Screenshots+Here" alt="Workshop testimonials" loading="lazy"></div>'
+           label="Testimonials: Review Screenshot Cards (replace placeholder images with your actual review screenshots)"
+           html='<div class="reviews-scatter"><div class="review-card review-card--left"><img src="https://placehold.co/260x200/ffffff/333333?text=Review+1" alt="Workshop review" loading="lazy"></div><div class="review-card review-card--mid"><img src="https://placehold.co/260x200/ffffff/333333?text=Review+2" alt="Workshop review" loading="lazy"></div><div class="review-card review-card--right"><img src="https://placehold.co/260x200/ffffff/333333?text=Review+3" alt="Workshop review" loading="lazy"></div></div><p class="reviews-disclaimer">Individual experiences presented here may not be typical. Their background, education, effort, and application affected their experience. The information shared here are for example purposes and not a guarantee of a rate of return or a specific result. Your results may vary.</p>'
         %}
         {% end_dnd_module %}
       {% end_dnd_row %}
     {% end_dnd_column %}
   {% end_dnd_section %}
 
-  {# ── "WHAT YOU'LL GET" HEADING BANNER (full-bleed bg image) ── #}
+  {# ── "WHAT YOU'LL GET" HEADING BANNER (near-black with texture) ── #}
   {% dnd_section
-     background_color={r:0, g:89, b:147, a:1}
+     background_color={r:17, g:17, b:17, a:1}
      padding={top:0, bottom:0, left:0, right:0}
   %}
     {% dnd_column width=12 %}
