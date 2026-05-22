@@ -184,14 +184,13 @@ a    { text-decoration: none; }
   line-height: 1.45;
 }
 .hero-video {
-  max-width: 780px;
+  max-width: 360px;
   margin: 36px auto 0;
   padding: 0 20px;
 }
 .hero-video-inner {
   position: relative;
-  padding-bottom: 56.25%;
-  background: rgba(0,0,0,0.3);
+  aspect-ratio: 9 / 16;
   border-radius: 8px;
   overflow: hidden;
 }
@@ -496,6 +495,7 @@ a    { text-decoration: none; }
   /* Hero */
   .atf__heading h1 { font-size: 34px !important; }
   .hero-sub h2     { font-size: 18px !important; }
+  .hero-video { max-width: 280px; }
   /* Body */
   .intro-text { font-size: 16px !important; }
   .sec-title h2 { font-size: 26px !important; }
