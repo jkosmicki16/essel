@@ -55,48 +55,16 @@ a    { text-decoration: none; }
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  padding: 8px 48px 8px 20px;
-  flex-wrap: wrap;
-  position: relative;
-  max-width: 1140px;
-  margin: 0 auto;
-}
-.banner-new {
-  background: #fff;
-  border-radius: 3px;
-  color: #ee2f2f;
-  font-weight: 800;
-  font-size: 10px;
-  padding: 2px 6px;
-  text-transform: uppercase;
-  flex-shrink: 0;
+  padding: 10px 20px;
+  text-align: center;
 }
 .banner-text {
   font-family: Poppins;
   font-weight: 700;
-  font-size: 13px;
+  font-size: 14px;
   color: #000;
-}
-.banner-link {
-  font-family: Poppins;
-  font-weight: 700;
-  font-size: 13px;
-  color: #000;
-  text-decoration: underline;
-}
-.banner-close {
-  position: absolute;
-  right: 14px;
-  top: 50%;
-  transform: translateY(-50%);
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 18px;
-  color: #000;
-  padding: 4px 8px;
-  line-height: 1;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
 /* ── NAVIGATION ── */
@@ -191,31 +159,32 @@ a    { text-decoration: none; }
 .atf__heading { text-align: center; padding: 0 20px; }
 .atf__heading h1 {
   font-family: Poppins;
-  font-size: 52px;
+  font-size: 62px;
   font-weight: 800;
   color: #fff;
   margin: 0 auto;
-  max-width: 900px;
-  line-height: 1.1;
+  max-width: 960px;
+  line-height: 1.05;
+  text-transform: uppercase;
 }
-.hero-sub { text-align: center; padding: 12px 20px 0; }
+.hero-sub { text-align: center; padding: 20px 20px 0; }
 .hero-sub h2 {
   font-family: Poppins;
-  font-size: 28px;
+  font-size: 26px;
   font-weight: 400;
   color: #fff;
   margin: 0 auto;
-  max-width: 800px;
-  line-height: 1.4;
+  max-width: 760px;
+  line-height: 1.45;
 }
 .hero-video {
-  max-width: 820px;
+  max-width: 520px;
   margin: 36px auto 0;
   padding: 0 20px;
 }
 .hero-video-inner {
   position: relative;
-  padding-bottom: 56.25%;
+  padding-bottom: 177.78%;
   background: rgba(0,0,0,0.3);
   border-radius: 8px;
   overflow: hidden;
@@ -485,13 +454,13 @@ a    { text-decoration: none; }
 /* ── RESPONSIVE ── */
 @media (max-width: 767px) {
   /* Banner */
-  .top-banner-inner { padding: 8px 36px 8px 12px; }
+  .banner-text { font-size: 11px; }
   /* Nav */
   .header-links, .header-cta-link-wrap { display: none; }
   .header-toggle { display: flex; }
   /* Hero */
-  .atf__heading h1 { font-size: 32px !important; }
-  .hero-sub h2     { font-size: 20px !important; }
+  .atf__heading h1 { font-size: 34px !important; }
+  .hero-sub h2     { font-size: 18px !important; }
   /* Body */
   .intro-text { font-size: 16px !important; }
   .sec-title h2 { font-size: 26px !important; }
@@ -507,7 +476,7 @@ a    { text-decoration: none; }
   .footer-top { flex-direction: column; align-items: flex-start; }
 }
 @media (min-width: 768px) and (max-width: 1024px) {
-  .atf__heading h1 { font-size: 40px !important; }
+  .atf__heading h1 { font-size: 46px !important; }
   .sec-title h2    { font-size: 30px !important; }
 }
   </style>
@@ -528,7 +497,7 @@ a    { text-decoration: none; }
       {% dnd_row %}
         {% dnd_module path="@hubspot/rich_text"
            label="Banner: Text + Link (edit or delete section to hide)"
-           html='<div class="top-banner-wrap"><div class="top-banner-inner"><span class="banner-new">NEW</span><span class="banner-text">2026 Scaling Workshop Dates Announced:</span><a href="#register" class="banner-link">Find out if you are a fit</a><button class="banner-close" aria-label="Close banner">&times;</button></div></div>'
+           html='<div class="top-banner-wrap"><div class="top-banner-inner"><span class="banner-text">🔴 Live New In-Person Marketing Workshop | Las Vegas</span></div></div>'
         %}
         {% end_dnd_module %}
       {% end_dnd_row %}
