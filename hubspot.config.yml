@@ -1,0 +1,16 @@
+# HubSpot CLI Configuration
+# Portal: essel (app-na2.hubspot.com, account 398176)
+#
+# SETUP: Run `hs auth` to authenticate, OR fill in your Personal Access Key below.
+# Personal Access Keys: https://app-na2.hubspot.com/personal-access-key/398176
+#
+# NEVER commit the personalAccessKey value — add hubspot.config.yml to .gitignore
+# if you need to store the key locally, or use `hs auth` which writes to ~/.hubspot.config.yml
+
+defaultPortal: essel
+
+portals:
+  - name: essel
+    portalId: 398176
+    authType: personalaccesskey
+    personalAccessKey: ""   # paste your PAT here (locally only — do not commit)

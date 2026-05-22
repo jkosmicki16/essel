@@ -1,0 +1,15 @@
+# HubSpot secrets — never commit tokens
+hubspot.config.local.yml
+.env
+.env.local
+.env.*.local
+
+# If you store the PAT in hubspot.config.yml locally, add it here too:
+# hubspot.config.yml
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
