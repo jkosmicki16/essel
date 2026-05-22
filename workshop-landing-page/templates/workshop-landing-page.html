@@ -194,10 +194,13 @@ a    { text-decoration: none; }
   border-radius: 8px;
   overflow: hidden;
 }
-.hero-video-inner iframe {
+.hero-video-inner iframe,
+.hero-video-inner img {
   position: absolute; inset: 0;
   width: 100%; height: 100%;
   border: none;
+  object-fit: cover;
+  display: block;
 }
 
 /* ── INTRO / BODY content (background set by dnd_section) ── */
@@ -604,7 +607,7 @@ a    { text-decoration: none; }
       {% dnd_row %}
         {% dnd_module path="@hubspot/rich_text"
            label="Hero: Video (replace YouTube URL with your Vimeo/Wistia embed)"
-           html='<div class="hero-video"><div class="hero-video-inner"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Workshop Introduction" allow="autoplay; fullscreen" allowfullscreen></iframe></div></div>'
+           html='<div class="hero-video"><div class="hero-video-inner"><img src="https://placehold.co/360x640/1565a8/ffffff?text=Replace+this+with+your+video+embed" alt="Video placeholder — replace with your Wistia or Vimeo embed"></div></div>'
         %}
         {% end_dnd_module %}
       {% end_dnd_row %}
