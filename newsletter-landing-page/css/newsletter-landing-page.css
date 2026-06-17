@@ -480,7 +480,10 @@ button { font-family: var(--essel-font); cursor: pointer; }
 .dnd-section .row-fluid > .span12 { flex: 0 0 100%; max-width: 100%; }
 
 /* 3-column card sections */
-.nlp-cards-section .row-fluid { gap: 24px; }
+.nlp-cards-section .row-fluid {
+  gap: 24px;
+  justify-content: center;
+}
 .nlp-cards-section .row-fluid > .span4 {
   flex: 0 0 calc(33.333% - 16px);
   max-width: calc(33.333% - 16px);
@@ -512,6 +515,9 @@ button { font-family: var(--essel-font); cursor: pointer; }
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0;
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* --------------------------------------------------------------------------
