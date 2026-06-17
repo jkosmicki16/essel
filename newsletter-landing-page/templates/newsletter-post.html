@@ -1,0 +1,214 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: Newsletter Post — Individual Issue
+-->
+<!DOCTYPE html>
+<html lang="{{ html_lang }}" prefix="og: http://ogp.me/ns#">
+<head>
+  {{ standard_header_includes }}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ content.html_title }}</title>
+  <meta name="description" content="{{ content.meta_description }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ get_asset_url('../css/newsletter-landing-page.css') }}">
+  <link rel="stylesheet" href="{{ get_asset_url('../css/newsletter-post.css') }}">
+</head>
+<body class="nlp-page npp-page">
+
+{# ── NAVIGATION ── #}
+<header class="nlp-header" id="nlp-header">
+  <div class="page-width nlp-header__inner">
+    {% module "nav_logo" path="@hubspot/rich_text"
+       label="Nav: Logo / Brand Name"
+       html='<a href="/" class="nlp-header__logo-text">ESSEL</a>'
+    %}
+    <nav class="nlp-nav" aria-label="Main navigation">
+      {% module "nav_links" path="@hubspot/rich_text"
+         label="Nav: Links"
+         html='<a href="/">Home</a><a href="/blog">Blog</a><a href="/newsletter">Newsletter</a><a href="/newsletter#subscribe" class="nlp-nav__cta">Subscribe</a>'
+      %}
+    </nav>
+    <button class="nlp-header__toggle" id="nlp-nav-toggle"
+            aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav class="nlp-mobile-nav" id="nlp-mobile-nav" aria-label="Mobile navigation">
+    <a href="/">Home</a>
+    <a href="/blog">Blog</a>
+    <a href="/newsletter">Newsletter</a>
+    <a href="/newsletter#subscribe" class="nlp-nav__cta">Subscribe</a>
+  </nav>
+</header>
+
+{% dnd_area "post_content" label="Newsletter Issue Content" %}
+
+  {# ── ISSUE HEADER ── #}
+  {% dnd_section
+     background_color={r:13, g:13, b:13, a:1}
+     padding={top:0, bottom:0, left:0, right:0}
+  %}
+    {% dnd_column width=12 %}
+      {% dnd_row %}
+        {% dnd_module path="@hubspot/rich_text"
+           label="Issue Header: Back link + Edition + Topic tag"
+           html='<div class="npp-header page-width"><a href="/newsletter" class="npp-back">← All Issues</a><div class="npp-meta"><span class="nlp-card__edition">Issue #24</span><span class="nlp-card__dot">·</span><time class="nlp-card__date">June 3, 2025</time><span class="nlp-card__tag" data-topic="regulatory">Regulatory</span></div></div>'
+        %}
+        {% end_dnd_module %}
+      {% end_dnd_row %}
+      {% dnd_row %}
+        {% dnd_module path="@hubspot/rich_text"
+           label="Issue Title (H1)"
+           html='<div class="npp-title-wrap page-width"><h1 class="npp-title">What the EPA\'s New PFAS Rules Mean for Environmental Consultants</h1></div>'
+        %}
+        {% end_dnd_module %}
+      {% end_dnd_row %}
+      {% dnd_row %}
+        {% dnd_module path="@hubspot/rich_text"
+           label="Issue Deck / Intro Summary (1–2 sentence overview)"
+           html='<div class="npp-deck-wrap page-width"><p class="npp-deck">The EPA finalized landmark PFAS regulations this spring. Here\'s what changed, which thresholds matter, and how consulting firms can get ahead of the compliance curve.</p></div>'
+        %}
+        {% end_dnd_module %}
+      {% end_dnd_row %}
+      {% dnd_row %}
+        {% dnd_module path="@hubspot/rich_text"
+           label="Issue Author + Read Time"
+           html='<div class="npp-byline-wrap page-width"><div class="npp-byline"><span class="npp-author">By the Essel Team</span><span class="nlp-card__dot">·</span><span class="npp-readtime">5 min read</span></div></div>'
+        %}
+        {% end_dnd_module %}
+      {% end_dnd_row %}
+    {% end_dnd_column %}
+  {% end_dnd_section %}
+
+  {# ── COVER IMAGE (optional) ── #}
+  {% dnd_section
+     background_color={r:240, g:240, b:240, a:1}
+     padding={top:0, bottom:0, left:0, right:0}
+  %}
+    {% dnd_column width=12 %}
+      {% dnd_row %}
+        {% dnd_module path="@hubspot/rich_text"
+           label="Cover Image (optional — delete section to hide, replace src with your image URL)"
+           html='<div class="npp-cover-wrap"><img src="https://placehold.co/1160x480/1a1a1a/F6D234?text=Issue+Cover+Image" alt="Newsletter cover image" class="npp-cover-img"></div>'
+        %}
+        {% end_dnd_module %}
+      {% end_dnd_row %}
+    {% end_dnd_column %}
+  {% end_dnd_section %}
+
+  {# ── ISSUE BODY ── #}
+  {% dnd_section
+     background_color={r:255, g:255, b:255, a:1}
+     padding={top:0, bottom:0, left:0, right:0}
+  %}
+    {% dnd_column width=12 %}
+
+      {# Each row below is one content block — duplicate rows to add more sections #}
+
+      {% dnd_row %}
+        {% dnd_module path="@hubspot/rich_text"
+           label="Body: Section 1 — Intro / Context"
+           html='<div class="npp-body page-width"><h2>What Changed</h2><p>On April 10, 2025, the EPA finalized the first-ever national drinking water standards for six PFAS compounds under the Safe Drinking Water Act. Maximum Contaminant Levels (MCLs) were set at <strong>4 parts per trillion (ppt)</strong> for PFOA and PFOS — the most common and well-studied of the so-called "forever chemicals."</p><p>This is a significant departure from previous advisory guidance, which was non-enforceable. Water systems now have <strong>five years</strong> to comply, but environmental consultants will feel the pressure much sooner as clients begin scoping assessment and remediation projects.</p></div>'
+        %}
+        {% end_dnd_module %}
+      {% end_dnd_row %}
+
+      {% dnd_row %}
+        {% dnd_module path="@hubspot/rich_text"
+           label="Body: Pull Quote (highlight a key stat or quote)"
+           html='<div class="npp-body page-width"><blockquote class="npp-pullquote">"MCLs set at 4 ppt for PFOA and PFOS — the most stringent federal water standard ever finalized."</blockquote></div>'
+        %}
+        {% end_dnd_module %}
+      {% end_dnd_row %}
+
+      {% dnd_row %}
+        {% dnd_module path="@hubspot/rich_text"
+           label="Body: Section 2 — What It Means for Consultants"
+           html='<div class="npp-body page-width"><h2>What It Means for Environmental Consultants</h2><p>The rule creates three near-term opportunities for consulting firms:</p><ul><li><strong>Site assessment demand spike.</strong> Utilities and industrial clients will need rapid baseline sampling — particularly at sites near historic fire-training areas, military installations, and industrial wastewater discharges.</li><li><strong>Remedial investigation scope expansion.</strong> Many existing RI/FS projects will need to be reopened to add PFAS characterization, which means contract amendments and additional field mobilizations.</li><li><strong>Regulatory liaison work.</strong> Clients operating in multiple states face a patchwork of state rules that in some cases are stricter than the new federal MCLs. Navigating that matrix is billable work that didn\'t exist 18 months ago.</li></ul></div>'
+        %}
+        {% end_dnd_module %}
+      {% end_dnd_row %}
+
+      {% dnd_row %}
+        {% dnd_module path="@hubspot/rich_text"
+           label="Body: Key Takeaways Box"
+           html='<div class="npp-body page-width"><div class="npp-takeaways"><h3 class="npp-takeaways__title">📌 Key Takeaways</h3><ul class="npp-takeaways__list"><li>MCLs of 4 ppt for PFOA/PFOS are now enforceable — not just advisory.</li><li>Five-year compliance window begins now; consulting work starts immediately.</li><li>12 states have stricter state-level rules — know your jurisdiction.</li><li>Expect contract amendments on active RI/FS projects with PFAS exposure.</li></ul></div></div>'
+        %}
+        {% end_dnd_module %}
+      {% end_dnd_row %}
+
+      {% dnd_row %}
+        {% dnd_module path="@hubspot/rich_text"
+           label="Body: Section 3 — Additional analysis, data, or resources (add as many rows as needed)"
+           html='<div class="npp-body page-width"><h2>Resources &amp; Further Reading</h2><p>If you\'re advising clients in the next 90 days, these are the documents worth bookmarking:</p><ul><li><a href="#">EPA Final PFAS Rule — Federal Register Summary</a></li><li><a href="#">State PFAS Standards Comparison Table (ITRC, 2025)</a></li><li><a href="#">ASTM E1527-21 Phase I ESA updates for PFAS consideration</a></li></ul></div>'
+        %}
+        {% end_dnd_module %}
+      {% end_dnd_row %}
+
+    {% end_dnd_column %}
+  {% end_dnd_section %}
+
+  {# ── BOTTOM CTA — subscribe + next/prev ── #}
+  {% dnd_section
+     background_color={r:249, g:249, b:249, a:1}
+     padding={top:0, bottom:0, left:0, right:0}
+  %}
+    {% dnd_column width=12 %}
+      {% dnd_row %}
+        {% dnd_module path="@hubspot/rich_text"
+           label="Issue Footer: Share + Navigation links (edit issue numbers and URLs)"
+           html='<div class="npp-issue-footer page-width"><div class="npp-nav-issues"><a href="/newsletter/issue-23" class="npp-issue-nav npp-issue-nav--prev">← Issue #23</a><a href="/newsletter" class="npp-issue-nav npp-issue-nav--all">All Issues</a><span class="npp-issue-nav npp-issue-nav--next npp-issue-nav--disabled">Latest Issue</span></div></div>'
+        %}
+        {% end_dnd_module %}
+      {% end_dnd_row %}
+    {% end_dnd_column %}
+  {% end_dnd_section %}
+
+  {# ── SUBSCRIBE CTA ── #}
+  {% dnd_section
+     background_color={r:13, g:13, b:13, a:1}
+     padding={top:0, bottom:0, left:0, right:0}
+  %}
+    {% dnd_column width=12 %}
+      {% dnd_row %}
+        {% dnd_module path="@hubspot/rich_text"
+           label="Subscribe CTA: Heading + Subtext"
+           html='<div class="nlp-subscribe__inner" id="subscribe"><span class="nlp-hero__eyebrow nlp-subscribe__eyebrow">Enjoyed this issue?</span><h2 class="nlp-subscribe__heading">Get the next one delivered to your inbox — free.</h2><p class="nlp-subscribe__sub">Join environmental professionals who rely on Essel every two weeks. Unsubscribe anytime.</p></div>'
+        %}
+        {% end_dnd_module %}
+      {% end_dnd_row %}
+      {% dnd_row %}
+        {% dnd_module path="@hubspot/form"
+           label="Subscribe: HubSpot Form"
+           form_field_groups=[]
+        %}
+        {% end_dnd_module %}
+      {% end_dnd_row %}
+    {% end_dnd_column %}
+  {% end_dnd_section %}
+
+{% end_dnd_area %}
+
+{# ── FOOTER ── #}
+<footer class="nlp-footer" role="contentinfo">
+  <div class="page-width nlp-footer__inner">
+    {% module "footer_brand" path="@hubspot/rich_text"
+       label="Footer: Brand + Tagline"
+       html='<div class="nlp-footer__brand"><a href="/" class="nlp-footer__logo">ESSEL</a><p class="nlp-footer__tagline">Environmental staffing &amp; consulting intelligence.</p></div>'
+    %}
+    {% module "footer_links" path="@hubspot/rich_text"
+       label="Footer: Links"
+       html='<nav class="nlp-footer__links"><a href="/">Home</a><a href="/blog">Blog</a><a href="/newsletter">Newsletter</a><a href="/privacy-policy">Privacy</a><a href="/unsubscribe">Unsubscribe</a></nav>'
+    %}
+    <p class="nlp-footer__copy">© {{ content.publish_date|datetimeformat('%Y') }} Essel. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="{{ get_asset_url('../js/newsletter-landing-page.js') }}"></script>
+{{ standard_footer_includes }}
+</body>
+</html>

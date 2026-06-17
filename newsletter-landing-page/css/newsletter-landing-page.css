@@ -429,19 +429,19 @@ button { font-family: var(--nlp-font); cursor: pointer; }
 /* --------------------------------------------------------------------------
    Newsletter Grid
    -------------------------------------------------------------------------- */
-.nlp-grid {
+.nlp-grid-row {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
   align-items: start;
 }
 
-/* featured card spans full row */
+/* featured card — full-width horizontal split */
 .nlp-card--featured {
-  grid-column: 1 / -1;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0;
+  margin-bottom: 0;
 }
 
 /* --------------------------------------------------------------------------
@@ -752,7 +752,7 @@ button { font-family: var(--nlp-font); cursor: pointer; }
    Responsive
    -------------------------------------------------------------------------- */
 @media (max-width: 900px) {
-  .nlp-grid {
+  .nlp-grid-row {
     grid-template-columns: repeat(2, 1fr);
   }
   .nlp-card--featured {
@@ -765,7 +765,7 @@ button { font-family: var(--nlp-font); cursor: pointer; }
 }
 
 @media (max-width: 680px) {
-  .nlp-grid {
+  .nlp-grid-row {
     grid-template-columns: 1fr;
   }
   .nlp-nav { display: none; }

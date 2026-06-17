@@ -1,0 +1,254 @@
+/* ==========================================================================
+   Newsletter Post — Individual Issue Styles
+   Extends newsletter-landing-page.css
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Issue Header
+   -------------------------------------------------------------------------- */
+.npp-header {
+  padding: 36px var(--nlp-pad-h) 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.npp-back {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--nlp-yellow);
+  letter-spacing: 0.02em;
+  transition: color var(--nlp-transition);
+  align-self: flex-start;
+}
+.npp-back:hover { color: var(--nlp-yellow-dark); }
+
+.npp-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.npp-title-wrap {
+  padding: 10px var(--nlp-pad-h) 0;
+}
+
+.npp-title {
+  font-size: clamp(28px, 4vw, 48px);
+  font-weight: 800;
+  color: var(--nlp-white);
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  max-width: 880px;
+}
+
+.npp-deck-wrap {
+  padding: 12px var(--nlp-pad-h) 0;
+}
+
+.npp-deck {
+  font-size: clamp(16px, 2vw, 20px);
+  color: rgba(255,255,255,0.65);
+  line-height: 1.6;
+  max-width: 760px;
+  font-weight: 400;
+}
+
+.npp-byline-wrap {
+  padding: 14px var(--nlp-pad-h) 40px;
+}
+
+.npp-byline {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.npp-author {
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.5);
+}
+
+.npp-readtime {
+  font-size: 13px;
+  color: rgba(255,255,255,0.35);
+}
+
+/* --------------------------------------------------------------------------
+   Cover Image
+   -------------------------------------------------------------------------- */
+.npp-cover-wrap {
+  width: 100%;
+  max-height: 480px;
+  overflow: hidden;
+}
+
+.npp-cover-img {
+  width: 100%;
+  height: 480px;
+  object-fit: cover;
+  display: block;
+}
+
+/* --------------------------------------------------------------------------
+   Body Content
+   -------------------------------------------------------------------------- */
+.npp-body {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 48px var(--nlp-pad-h);
+}
+
+.npp-body h2 {
+  font-size: clamp(20px, 2.5vw, 26px);
+  font-weight: 800;
+  color: var(--nlp-black);
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+  margin-top: 48px;
+  line-height: 1.2;
+}
+
+.npp-body h2:first-child { margin-top: 0; }
+
+.npp-body h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--nlp-black);
+  margin-bottom: 12px;
+  margin-top: 36px;
+}
+
+.npp-body p {
+  font-size: 17px;
+  line-height: 1.78;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.npp-body ul,
+.npp-body ol {
+  padding-left: 22px;
+  margin-bottom: 20px;
+}
+
+.npp-body li {
+  font-size: 17px;
+  line-height: 1.72;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.npp-body strong { font-weight: 700; color: var(--nlp-black); }
+
+.npp-body a {
+  color: #996b00;
+  font-weight: 600;
+  border-bottom: 1px solid rgba(153,107,0,0.3);
+  transition: border-color var(--nlp-transition), color var(--nlp-transition);
+}
+.npp-body a:hover { color: var(--nlp-black); border-color: var(--nlp-black); }
+
+/* --------------------------------------------------------------------------
+   Pull Quote
+   -------------------------------------------------------------------------- */
+.npp-pullquote {
+  border-left: 4px solid var(--nlp-yellow);
+  padding: 16px 24px;
+  margin: 8px 0 24px;
+  background: #fffbea;
+  border-radius: 0 var(--nlp-radius-sm) var(--nlp-radius-sm) 0;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--nlp-black);
+  font-style: normal;
+}
+
+/* --------------------------------------------------------------------------
+   Key Takeaways Box
+   -------------------------------------------------------------------------- */
+.npp-takeaways {
+  background: var(--nlp-gray-50);
+  border: 1.5px solid var(--nlp-gray-200);
+  border-radius: var(--nlp-radius-md);
+  padding: 24px 28px;
+  margin: 8px 0 28px;
+}
+
+.npp-takeaways__title {
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--nlp-black);
+  margin-bottom: 14px;
+  letter-spacing: 0.01em;
+}
+
+.npp-takeaways__list {
+  padding-left: 18px;
+  margin: 0;
+}
+
+.npp-takeaways__list li {
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--nlp-gray-700);
+  margin-bottom: 8px;
+}
+
+/* --------------------------------------------------------------------------
+   Issue Navigation Footer
+   -------------------------------------------------------------------------- */
+.npp-issue-footer {
+  padding: 48px var(--nlp-pad-h);
+}
+
+.npp-nav-issues {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  border-top: 1px solid var(--nlp-gray-200);
+  padding-top: 32px;
+}
+
+.npp-issue-nav {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--nlp-black);
+  padding: 10px 20px;
+  border: 1.5px solid var(--nlp-gray-200);
+  border-radius: var(--nlp-radius-sm);
+  transition: all var(--nlp-transition);
+  text-decoration: none;
+}
+.npp-issue-nav:hover {
+  border-color: var(--nlp-black);
+  background: var(--nlp-gray-50);
+}
+.npp-issue-nav--all {
+  background: var(--nlp-yellow);
+  border-color: var(--nlp-yellow);
+  color: var(--nlp-black);
+}
+.npp-issue-nav--all:hover { background: var(--nlp-yellow-dark); border-color: var(--nlp-yellow-dark); }
+
+.npp-issue-nav--disabled {
+  color: var(--nlp-gray-400);
+  border-color: var(--nlp-gray-100);
+  pointer-events: none;
+  cursor: default;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive
+   -------------------------------------------------------------------------- */
+@media (max-width: 680px) {
+  .npp-title { font-size: 28px; }
+  .npp-body { padding: 32px var(--nlp-pad-h); }
+  .npp-cover-img { height: 240px; }
+  .npp-nav-issues { flex-direction: column; align-items: stretch; text-align: center; }
+}
