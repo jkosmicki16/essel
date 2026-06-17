@@ -142,49 +142,136 @@
     {% end_dnd_column %}
   {% end_dnd_section %}
 
-  {# ── NEWSLETTER GRID ── #}
-  {# Featured (latest) card — full-width split layout #}
+  {# ══════════════════════════════════════════════════════════════
+     NEWSLETTER GRID — each card is its own module with sidebar
+     fields: Cover Image, Edition #, Date, Topic, Title, Excerpt, URL
+     To add a new row: duplicate any 3-column section below.
+     To add a new issue: duplicate a dnd_column block inside a row.
+  ══════════════════════════════════════════════════════════════ #}
+
+  {# ── FEATURED (Latest) card — full-width, image picker in sidebar ── #}
   {% dnd_section
      background_color={r:249, g:249, b:249, a:1}
-     padding={top:24, bottom:0, left:0, right:0}
+     padding={top:40, bottom:0, left:20, right:20}
   %}
     {% dnd_column width=12 %}
       {% dnd_row %}
-        {% dnd_module path="@hubspot/rich_text"
-           label="Latest Issue Card (featured — full-width, replace link with newsletter post URL)"
-           html='<div class="page-width" id="library"><div class="nlp-card nlp-card--featured" data-topic="regulatory"><div class="nlp-card__image-wrap nlp-card__image-wrap--placeholder"><span class="nlp-card__badge">Latest Issue</span></div><div class="nlp-card__body"><div class="nlp-card__meta"><span class="nlp-card__edition">Issue #24</span><span class="nlp-card__dot">·</span><time class="nlp-card__date">June 3, 2025</time><span class="nlp-card__tag" data-topic="regulatory">Regulatory</span></div><h3 class="nlp-card__title">What the EPA\'s New PFAS Rules Mean for Environmental Consultants</h3><p class="nlp-card__excerpt">The EPA finalized landmark PFAS regulations this spring. In this issue we break down what changed, which thresholds matter, and how consulting firms can get ahead of the compliance curve before the deadlines hit.</p><a href="/newsletter/issue-24" class="nlp-card__read-link">Read Issue →</a></div></div></div>'
+        {% dnd_module path="newsletter-landing-page/modules/newsletter-card"
+           label="Latest Issue (Featured Card)"
+           edition_number="Issue #24"
+           publish_date="June 3, 2025"
+           topic="regulatory"
+           title="What the EPA's New PFAS Rules Mean for Environmental Consultants"
+           excerpt="<p>The EPA finalized landmark PFAS regulations this spring. In this issue we break down what changed, which thresholds matter, and how consulting firms can get ahead of the compliance curve.</p>"
+           issue_url={url: {href: "/newsletter/issue-24", type: "CONTENT"}}
+           is_featured=true
         %}
         {% end_dnd_module %}
       {% end_dnd_row %}
     {% end_dnd_column %}
   {% end_dnd_section %}
 
-  {# Standard issue grid — row 1 (3 cards) #}
+  {# ── CARD ROW 1 — 3 individual cards, each with its own sidebar ── #}
+  {# To add a new row of 3 cards: duplicate this entire dnd_section block #}
   {% dnd_section
+     css_class="nlp-cards-section"
      background_color={r:249, g:249, b:249, a:1}
-     padding={top:24, bottom:0, left:0, right:0}
+     padding={top:24, bottom:0, left:20, right:20}
   %}
-    {% dnd_column width=12 %}
+    {% dnd_column offset=0, width=4 %}
       {% dnd_row %}
-        {% dnd_module path="@hubspot/rich_text"
-           label="Issue Cards Row 1 (Issues #23, #22, #21 — edit text and links, add cover images)"
-           html='<div class="page-width"><div class="nlp-grid-row"><article class="nlp-card" data-topic="workforce"><div class="nlp-card__image-wrap nlp-card__image-wrap--placeholder"></div><div class="nlp-card__body"><div class="nlp-card__meta"><span class="nlp-card__edition">Issue #23</span><span class="nlp-card__dot">·</span><time class="nlp-card__date">May 20, 2025</time><span class="nlp-card__tag" data-topic="workforce">Workforce</span></div><h3 class="nlp-card__title">Hiring Environmental Scientists in 2025: What Candidates Actually Want</h3><p class="nlp-card__excerpt">Compensation alone won\'t close positions anymore. We surveyed 340 environmental professionals to find out what really drives their job decisions.</p><a href="/newsletter/issue-23" class="nlp-card__read-link">Read Issue →</a></div></article><article class="nlp-card" data-topic="technology"><div class="nlp-card__image-wrap nlp-card__image-wrap--placeholder"></div><div class="nlp-card__body"><div class="nlp-card__meta"><span class="nlp-card__edition">Issue #22</span><span class="nlp-card__dot">·</span><time class="nlp-card__date">May 6, 2025</time><span class="nlp-card__tag" data-topic="technology">Technology</span></div><h3 class="nlp-card__title">AI in the Field: Early Wins and Honest Limits for Site Assessments</h3><p class="nlp-card__excerpt">From LiDAR-assisted mapping to AI-drafted Phase I reports, technology is reshaping fieldwork. Here\'s what\'s actually saving time vs. vaporware.</p><a href="/newsletter/issue-22" class="nlp-card__read-link">Read Issue →</a></div></article><article class="nlp-card" data-topic="industry"><div class="nlp-card__image-wrap nlp-card__image-wrap--placeholder"></div><div class="nlp-card__body"><div class="nlp-card__meta"><span class="nlp-card__edition">Issue #21</span><span class="nlp-card__dot">·</span><time class="nlp-card__date">April 22, 2025</time><span class="nlp-card__tag" data-topic="industry">Industry Trends</span></div><h3 class="nlp-card__title">Q1 2025 Environmental Market Snapshot</h3><p class="nlp-card__excerpt">Remediation demand is up, federal spending signals are mixed, and M&amp;A activity in consulting hit a three-year high. Our quarterly digest of what moved the market.</p><a href="/newsletter/issue-21" class="nlp-card__read-link">Read Issue →</a></div></article></div></div>'
+        {% dnd_module path="newsletter-landing-page/modules/newsletter-card"
+           label="Issue Card"
+           edition_number="Issue #23"
+           publish_date="May 20, 2025"
+           topic="workforce"
+           title="Hiring Environmental Scientists in 2025: What Candidates Actually Want"
+           excerpt="<p>Compensation alone won't close positions anymore. We surveyed 340 environmental professionals to find out what really drives their job decisions.</p>"
+           issue_url={url: {href: "/newsletter/issue-23", type: "CONTENT"}}
+           is_featured=false
+        %}
+        {% end_dnd_module %}
+      {% end_dnd_row %}
+    {% end_dnd_column %}
+    {% dnd_column offset=4, width=4 %}
+      {% dnd_row %}
+        {% dnd_module path="newsletter-landing-page/modules/newsletter-card"
+           label="Issue Card"
+           edition_number="Issue #22"
+           publish_date="May 6, 2025"
+           topic="technology"
+           title="AI in the Field: Early Wins and Honest Limits for Site Assessments"
+           excerpt="<p>From LiDAR-assisted mapping to AI-drafted Phase I reports, technology is reshaping fieldwork. Here's what's actually saving time vs. vaporware.</p>"
+           issue_url={url: {href: "/newsletter/issue-22", type: "CONTENT"}}
+           is_featured=false
+        %}
+        {% end_dnd_module %}
+      {% end_dnd_row %}
+    {% end_dnd_column %}
+    {% dnd_column offset=8, width=4 %}
+      {% dnd_row %}
+        {% dnd_module path="newsletter-landing-page/modules/newsletter-card"
+           label="Issue Card"
+           edition_number="Issue #21"
+           publish_date="April 22, 2025"
+           topic="industry"
+           title="Q1 2025 Environmental Market Snapshot"
+           excerpt="<p>Remediation demand is up, federal spending signals are mixed, and M&amp;A activity in consulting hit a three-year high. Our quarterly digest of what moved the market.</p>"
+           issue_url={url: {href: "/newsletter/issue-21", type: "CONTENT"}}
+           is_featured=false
         %}
         {% end_dnd_module %}
       {% end_dnd_row %}
     {% end_dnd_column %}
   {% end_dnd_section %}
 
-  {# Standard issue grid — row 2 (3 cards) #}
+  {# ── CARD ROW 2 — duplicate this section to add more rows ── #}
   {% dnd_section
+     css_class="nlp-cards-section"
      background_color={r:249, g:249, b:249, a:1}
-     padding={top:24, bottom:70, left:0, right:0}
+     padding={top:24, bottom:60, left:20, right:20}
   %}
-    {% dnd_column width=12 %}
+    {% dnd_column offset=0, width=4 %}
       {% dnd_row %}
-        {% dnd_module path="@hubspot/rich_text"
-           label="Issue Cards Row 2 (Issues #20, #19, #18 — duplicate this section to add more rows)"
-           html='<div class="page-width"><div class="nlp-grid-row"><article class="nlp-card" data-topic="regulatory"><div class="nlp-card__image-wrap nlp-card__image-wrap--placeholder"></div><div class="nlp-card__body"><div class="nlp-card__meta"><span class="nlp-card__edition">Issue #20</span><span class="nlp-card__dot">·</span><time class="nlp-card__date">April 8, 2025</time><span class="nlp-card__tag" data-topic="regulatory">Regulatory</span></div><h3 class="nlp-card__title">State-Level PFAS Rules Are Outpacing Federal Action</h3><p class="nlp-card__excerpt">Twelve states now have stricter PFAS standards than federal rules require. We map the patchwork and identify the jurisdictions where consultants need to act now.</p><a href="/newsletter/issue-20" class="nlp-card__read-link">Read Issue →</a></div></article><article class="nlp-card" data-topic="workforce"><div class="nlp-card__image-wrap nlp-card__image-wrap--placeholder"></div><div class="nlp-card__body"><div class="nlp-card__meta"><span class="nlp-card__edition">Issue #19</span><span class="nlp-card__dot">·</span><time class="nlp-card__date">March 25, 2025</time><span class="nlp-card__tag" data-topic="workforce">Workforce</span></div><h3 class="nlp-card__title">The Hidden Cost of a 60-Day Hire: A Data-Driven Look at Vacancy Impact</h3><p class="nlp-card__excerpt">We crunched the numbers on what extended open roles actually cost environmental firms — in dollars, project delays, and team morale.</p><a href="/newsletter/issue-19" class="nlp-card__read-link">Read Issue →</a></div></article><article class="nlp-card" data-topic="technology"><div class="nlp-card__image-wrap nlp-card__image-wrap--placeholder"></div><div class="nlp-card__body"><div class="nlp-card__meta"><span class="nlp-card__edition">Issue #18</span><span class="nlp-card__dot">·</span><time class="nlp-card__date">March 11, 2025</time><span class="nlp-card__tag" data-topic="technology">Technology</span></div><h3 class="nlp-card__title">Digital Chain of Custody: Reducing Lab Errors with E-Submissions</h3><p class="nlp-card__excerpt">Paper-based COC forms are a persistent source of sample tracking errors. Electronic submissions are finally hitting mainstream adoption — here\'s the transition guide.</p><a href="/newsletter/issue-18" class="nlp-card__read-link">Read Issue →</a></div></article></div></div>'
+        {% dnd_module path="newsletter-landing-page/modules/newsletter-card"
+           label="Issue Card"
+           edition_number="Issue #20"
+           publish_date="April 8, 2025"
+           topic="regulatory"
+           title="State-Level PFAS Rules Are Outpacing Federal Action"
+           excerpt="<p>Twelve states now have stricter PFAS standards than federal rules require. We map the patchwork and identify the jurisdictions where consultants need to act now.</p>"
+           issue_url={url: {href: "/newsletter/issue-20", type: "CONTENT"}}
+           is_featured=false
+        %}
+        {% end_dnd_module %}
+      {% end_dnd_row %}
+    {% end_dnd_column %}
+    {% dnd_column offset=4, width=4 %}
+      {% dnd_row %}
+        {% dnd_module path="newsletter-landing-page/modules/newsletter-card"
+           label="Issue Card"
+           edition_number="Issue #19"
+           publish_date="March 25, 2025"
+           topic="workforce"
+           title="The Hidden Cost of a 60-Day Hire: A Data-Driven Look at Vacancy Impact"
+           excerpt="<p>We crunched the numbers on what extended open roles actually cost environmental firms — in dollars, project delays, and team morale.</p>"
+           issue_url={url: {href: "/newsletter/issue-19", type: "CONTENT"}}
+           is_featured=false
+        %}
+        {% end_dnd_module %}
+      {% end_dnd_row %}
+    {% end_dnd_column %}
+    {% dnd_column offset=8, width=4 %}
+      {% dnd_row %}
+        {% dnd_module path="newsletter-landing-page/modules/newsletter-card"
+           label="Issue Card"
+           edition_number="Issue #18"
+           publish_date="March 11, 2025"
+           topic="technology"
+           title="Digital Chain of Custody: Reducing Lab Errors with E-Submissions"
+           excerpt="<p>Paper-based COC forms are a persistent source of sample tracking errors. Electronic submissions are finally hitting mainstream adoption — here's the transition guide.</p>"
+           issue_url={url: {href: "/newsletter/issue-18", type: "CONTENT"}}
+           is_featured=false
         %}
         {% end_dnd_module %}
       {% end_dnd_row %}

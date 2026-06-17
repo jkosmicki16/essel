@@ -427,7 +427,47 @@ button { font-family: var(--nlp-font); cursor: pointer; }
 }
 
 /* --------------------------------------------------------------------------
-   Newsletter Grid
+   DnD flex-grid compat (required for 3-column card modules)
+   -------------------------------------------------------------------------- */
+.dnd-section > .row-fluid,
+.dnd-section .row-fluid {
+  display: flex !important;
+  flex-wrap: wrap;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+.dnd-section .row-fluid::after,
+.dnd-section .row-fluid::before { display: none !important; }
+
+.dnd-section .row-fluid > [class*="span"] {
+  float: none !important;
+  box-sizing: border-box;
+  margin-left: 0 !important;
+}
+
+/* Full-width sections */
+.dnd-section .row-fluid > .span12 { flex: 0 0 100%; max-width: 100%; }
+
+/* 3-column card sections — gap via padding, section handles outer padding */
+.nlp-cards-section .row-fluid { gap: 24px; }
+.nlp-cards-section .row-fluid > .span4 {
+  flex: 0 0 calc(33.333% - 16px);
+  max-width: calc(33.333% - 16px);
+}
+
+/* Stretch intermediate DnD wrappers so cards fill column height */
+.nlp-cards-section .span4 > .dnd-row,
+.nlp-cards-section .span4 .widget-span,
+.nlp-cards-section .span4 .dnd-row > div {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  height: 100%;
+}
+.nlp-cards-section .span4 .nlp-card { flex: 1; }
+
+/* --------------------------------------------------------------------------
+   Newsletter Grid (legacy class kept for any inline use)
    -------------------------------------------------------------------------- */
 .nlp-grid-row {
   display: grid;
@@ -752,8 +792,12 @@ button { font-family: var(--nlp-font); cursor: pointer; }
    Responsive
    -------------------------------------------------------------------------- */
 @media (max-width: 900px) {
-  .nlp-grid-row {
-    grid-template-columns: repeat(2, 1fr);
+  .nlp-grid-row { grid-template-columns: repeat(2, 1fr); }
+
+  /* DnD 3-col → 2-col */
+  .nlp-cards-section .row-fluid > .span4 {
+    flex: 0 0 calc(50% - 12px);
+    max-width: calc(50% - 12px);
   }
   .nlp-card--featured {
     grid-template-columns: 1fr;
@@ -765,8 +809,13 @@ button { font-family: var(--nlp-font); cursor: pointer; }
 }
 
 @media (max-width: 680px) {
-  .nlp-grid-row {
-    grid-template-columns: 1fr;
+  .nlp-grid-row { grid-template-columns: 1fr; }
+
+  /* DnD 3-col → 1-col */
+  .nlp-cards-section .row-fluid { gap: 16px; }
+  .nlp-cards-section .row-fluid > .span4 {
+    flex: 0 0 100%;
+    max-width: 100%;
   }
   .nlp-nav { display: none; }
   .nlp-header__toggle { display: flex; }
