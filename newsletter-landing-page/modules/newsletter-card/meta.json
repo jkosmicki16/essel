@@ -26,12 +26,12 @@
       "label": "Topic Category",
       "type": "choice",
       "choices": [
-        ["regulatory", "Regulatory"],
+        ["skilled-trades", "Skilled Trades"],
         ["workforce", "Workforce"],
-        ["technology", "Technology"],
+        ["regulatory", "Regulatory"],
         ["industry", "Industry Trends"]
       ],
-      "default": "regulatory"
+      "default": "skilled-trades"
     },
     {
       "name": "title",

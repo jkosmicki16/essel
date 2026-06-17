@@ -1,33 +1,42 @@
 /* ==========================================================================
-   Newsletter Landing Page — Styles
+   Newsletter Landing Page — Essel Brand Styles
+   Brand: Dark Navy #0D1B2A · Teal #1E6B5A · Orange #F5821F
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
-   Design Tokens
+   Design Tokens — Essel Brand
    -------------------------------------------------------------------------- */
 :root {
-  --nlp-yellow:          #F6D234;
-  --nlp-yellow-dark:     #f0cc20;
-  --nlp-black:           #0D0D0D;
-  --nlp-white:           #FFFFFF;
-  --nlp-gray-50:         #F9F9F9;
-  --nlp-gray-100:        #F2F2F2;
-  --nlp-gray-200:        #E5E5E5;
-  --nlp-gray-400:        #9E9E9E;
-  --nlp-gray-700:        #444444;
-  --nlp-text:            #111111;
-  --nlp-text-muted:      #666666;
+  /* Essel core palette */
+  --essel-navy:          #0D1B2A;
+  --essel-navy-mid:      #152336;
+  --essel-navy-light:    #1E3347;
+  --essel-teal:          #1E6B5A;
+  --essel-teal-dark:     #175549;
+  --essel-teal-light:    #2A8A72;
+  --essel-teal-glow:     rgba(30,107,90,0.18);
+  --essel-orange:        #F5821F;
+  --essel-orange-dark:   #D96D10;
+  --essel-orange-light:  #FFA04A;
+  --essel-white:         #FFFFFF;
+  --essel-off-white:     #F4F6F8;
+  --essel-gray-100:      #E8ECF0;
+  --essel-gray-200:      #CDD4DB;
+  --essel-gray-400:      #8C9BAB;
+  --essel-gray-700:      #3D4E5C;
+  --essel-text:          #0D1B2A;
+  --essel-text-muted:    #5A6E7E;
 
-  --nlp-font:            'Poppins', sans-serif;
-  --nlp-radius-sm:       4px;
-  --nlp-radius-md:       10px;
-  --nlp-radius-lg:       16px;
-  --nlp-transition:      0.18s ease;
-  --nlp-shadow-card:     0 2px 12px rgba(0,0,0,0.07);
-  --nlp-shadow-hover:    0 6px 28px rgba(0,0,0,0.12);
+  --essel-font:          'Poppins', sans-serif;
+  --essel-radius-sm:     4px;
+  --essel-radius-md:     10px;
+  --essel-radius-lg:     16px;
+  --essel-transition:    0.18s ease;
+  --essel-shadow-card:   0 2px 14px rgba(13,27,42,0.08);
+  --essel-shadow-hover:  0 8px 32px rgba(13,27,42,0.16);
 
-  --nlp-container:       1160px;
-  --nlp-pad-h:           24px;
+  --essel-container:     1160px;
+  --essel-pad-h:         24px;
 }
 
 /* --------------------------------------------------------------------------
@@ -37,9 +46,9 @@
 html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 
 body.nlp-page {
-  font-family: var(--nlp-font);
-  background: var(--nlp-white);
-  color: var(--nlp-text);
+  font-family: var(--essel-font);
+  background: var(--essel-white);
+  color: var(--essel-text);
   font-size: 16px;
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
@@ -48,22 +57,22 @@ body.nlp-page {
 
 img  { max-width: 100%; height: auto; display: block; }
 a    { color: inherit; text-decoration: none; }
-button { font-family: var(--nlp-font); cursor: pointer; }
+button { font-family: var(--essel-font); cursor: pointer; }
 
 .page-width {
-  max-width: var(--nlp-container);
+  max-width: var(--essel-container);
   margin-left: auto;
   margin-right: auto;
-  padding-left: var(--nlp-pad-h);
-  padding-right: var(--nlp-pad-h);
+  padding-left: var(--essel-pad-h);
+  padding-right: var(--essel-pad-h);
   width: 100%;
 }
 
 /* --------------------------------------------------------------------------
-   Announcement Banner
+   Announcement Banner — Essel Teal
    -------------------------------------------------------------------------- */
 .nlp-banner {
-  background: var(--nlp-yellow);
+  background: var(--essel-teal);
   position: relative;
 }
 
@@ -72,28 +81,29 @@ button { font-family: var(--nlp-font); cursor: pointer; }
   align-items: center;
   justify-content: center;
   gap: 16px;
-  padding: 10px var(--nlp-pad-h);
+  padding: 10px var(--essel-pad-h);
   flex-wrap: wrap;
 }
 
 .nlp-banner__text {
   font-size: 13px;
   font-weight: 600;
-  color: var(--nlp-black);
+  color: var(--essel-white);
   text-align: center;
 }
 
 .nlp-banner__cta {
   font-size: 13px;
   font-weight: 700;
-  color: var(--nlp-black);
-  background: rgba(0,0,0,0.1);
-  padding: 4px 12px;
-  border-radius: var(--nlp-radius-sm);
+  color: var(--essel-white);
+  background: rgba(255,255,255,0.15);
+  padding: 4px 14px;
+  border-radius: var(--essel-radius-sm);
   white-space: nowrap;
-  transition: background var(--nlp-transition);
+  transition: background var(--essel-transition);
+  border: 1px solid rgba(255,255,255,0.25);
 }
-.nlp-banner__cta:hover { background: rgba(0,0,0,0.18); }
+.nlp-banner__cta:hover { background: rgba(255,255,255,0.25); }
 
 .nlp-banner__close {
   position: absolute;
@@ -104,19 +114,19 @@ button { font-family: var(--nlp-font); cursor: pointer; }
   border: none;
   font-size: 20px;
   line-height: 1;
-  color: var(--nlp-black);
-  opacity: 0.5;
-  transition: opacity var(--nlp-transition);
+  color: var(--essel-white);
+  opacity: 0.6;
+  transition: opacity var(--essel-transition);
   padding: 4px;
 }
 .nlp-banner__close:hover { opacity: 1; }
 
 /* --------------------------------------------------------------------------
-   Header / Navigation
+   Header / Navigation — White bar, Essel Navy logo
    -------------------------------------------------------------------------- */
 .nlp-header {
-  background: var(--nlp-white);
-  border-bottom: 1px solid var(--nlp-gray-200);
+  background: var(--essel-white);
+  border-bottom: 1px solid var(--essel-gray-100);
   position: sticky;
   top: 0;
   z-index: 100;
@@ -125,7 +135,7 @@ button { font-family: var(--nlp-font); cursor: pointer; }
 .nlp-header__inner {
   display: flex;
   align-items: center;
-  height: 64px;
+  height: 66px;
   gap: 16px;
 }
 
@@ -136,16 +146,13 @@ button { font-family: var(--nlp-font); cursor: pointer; }
   flex-shrink: 0;
 }
 
-.nlp-header__logo-img {
-  height: 36px;
-  width: auto;
-}
+.nlp-header__logo-img { height: 36px; width: auto; }
 
 .nlp-header__logo-text {
   font-weight: 800;
   font-size: 21px;
   letter-spacing: -0.02em;
-  color: var(--nlp-black);
+  color: var(--essel-navy);
 }
 
 .nlp-nav {
@@ -159,20 +166,21 @@ button { font-family: var(--nlp-font); cursor: pointer; }
 .nlp-nav a {
   font-size: 13px;
   font-weight: 600;
-  color: var(--nlp-text);
+  color: var(--essel-gray-700);
   padding: 6px 12px;
-  border-radius: var(--nlp-radius-sm);
-  transition: background var(--nlp-transition);
+  border-radius: var(--essel-radius-sm);
+  transition: background var(--essel-transition), color var(--essel-transition);
   white-space: nowrap;
 }
-.nlp-nav a:hover { background: var(--nlp-gray-100); }
+.nlp-nav a:hover { background: var(--essel-off-white); color: var(--essel-navy); }
 
 .nlp-nav__cta {
-  background: var(--nlp-yellow) !important;
-  color: var(--nlp-black) !important;
+  background: var(--essel-orange) !important;
+  color: var(--essel-white) !important;
   font-weight: 700 !important;
+  border-radius: var(--essel-radius-sm) !important;
 }
-.nlp-nav__cta:hover { background: var(--nlp-yellow-dark) !important; }
+.nlp-nav__cta:hover { background: var(--essel-orange-dark) !important; }
 
 .nlp-header__toggle {
   display: none;
@@ -188,7 +196,7 @@ button { font-family: var(--nlp-font); cursor: pointer; }
   display: block;
   width: 24px;
   height: 2px;
-  background: var(--nlp-black);
+  background: var(--essel-navy);
   border-radius: 2px;
   transition: transform 0.2s, opacity 0.2s;
 }
@@ -199,16 +207,16 @@ button { font-family: var(--nlp-font); cursor: pointer; }
 .nlp-mobile-nav {
   display: none;
   flex-direction: column;
-  border-top: 1px solid var(--nlp-gray-200);
+  border-top: 1px solid var(--essel-gray-100);
   padding: 10px 0 14px;
 }
 .nlp-mobile-nav.open { display: flex; }
 .nlp-mobile-nav a {
   font-size: 15px;
   font-weight: 600;
-  color: var(--nlp-text);
-  padding: 10px var(--nlp-pad-h);
-  border-bottom: 1px solid var(--nlp-gray-100);
+  color: var(--essel-text);
+  padding: 10px var(--essel-pad-h);
+  border-bottom: 1px solid var(--essel-off-white);
 }
 .nlp-mobile-nav a:last-child { border-bottom: none; }
 
@@ -219,54 +227,77 @@ button { font-family: var(--nlp-font); cursor: pointer; }
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-family: var(--nlp-font);
+  font-family: var(--essel-font);
   font-weight: 700;
   font-size: 15px;
   padding: 14px 28px;
-  border-radius: var(--nlp-radius-sm);
-  transition: background var(--nlp-transition), transform var(--nlp-transition), color var(--nlp-transition);
+  border-radius: var(--essel-radius-sm);
+  transition: background var(--essel-transition), transform var(--essel-transition), color var(--essel-transition);
   white-space: nowrap;
   border: none;
   cursor: pointer;
   text-decoration: none;
 }
-.nlp-btn--primary {
-  background: var(--nlp-yellow);
-  color: var(--nlp-black);
-}
-.nlp-btn--primary:hover { background: var(--nlp-yellow-dark); transform: translateY(-1px); }
 
+/* Primary = Essel Orange */
+.nlp-btn--primary {
+  background: var(--essel-orange);
+  color: var(--essel-white);
+}
+.nlp-btn--primary:hover { background: var(--essel-orange-dark); transform: translateY(-1px); }
+
+/* Ghost = outlined white (for dark backgrounds) */
 .nlp-btn--ghost {
   background: transparent;
-  color: var(--nlp-white);
-  border: 2px solid rgba(255,255,255,0.4);
+  color: var(--essel-white);
+  border: 2px solid rgba(255,255,255,0.35);
 }
-.nlp-btn--ghost:hover { border-color: var(--nlp-white); background: rgba(255,255,255,0.08); }
+.nlp-btn--ghost:hover { border-color: var(--essel-white); background: rgba(255,255,255,0.08); }
 
+/* Outline = for light backgrounds */
 .nlp-btn--outline {
   background: transparent;
-  color: var(--nlp-black);
-  border: 2px solid var(--nlp-gray-200);
+  color: var(--essel-navy);
+  border: 2px solid var(--essel-gray-200);
 }
-.nlp-btn--outline:hover { border-color: var(--nlp-black); background: var(--nlp-gray-50); }
+.nlp-btn--outline:hover { border-color: var(--essel-navy); background: var(--essel-off-white); }
+
+/* Teal variant */
+.nlp-btn--teal {
+  background: var(--essel-teal);
+  color: var(--essel-white);
+}
+.nlp-btn--teal:hover { background: var(--essel-teal-dark); transform: translateY(-1px); }
 
 /* --------------------------------------------------------------------------
-   Hero
+   Hero — Essel Dark Navy with teal dot-grid
    -------------------------------------------------------------------------- */
 .nlp-hero {
-  background: var(--nlp-black);
+  background: var(--essel-navy);
   padding: 90px 0 80px;
   position: relative;
   overflow: hidden;
 }
 
-/* subtle dot-grid texture */
+/* Teal dot-grid texture */
 .nlp-hero::before {
   content: '';
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(circle, rgba(246,210,52,0.10) 1px, transparent 1px);
+  background-image: radial-gradient(circle, rgba(30,107,90,0.22) 1px, transparent 1px);
   background-size: 28px 28px;
+  pointer-events: none;
+}
+
+/* Left teal glow accent */
+.nlp-hero::after {
+  content: '';
+  position: absolute;
+  top: -120px;
+  left: -120px;
+  width: 480px;
+  height: 480px;
+  background: radial-gradient(circle, rgba(30,107,90,0.28) 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -277,23 +308,30 @@ button { font-family: var(--nlp-font); cursor: pointer; }
   margin: 0 auto;
 }
 
+/* Teal pill eyebrow */
 .nlp-hero__eyebrow {
   display: inline-block;
-  background: var(--nlp-yellow);
-  color: var(--nlp-black);
+  background: var(--essel-teal);
+  color: var(--essel-white);
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  padding: 5px 14px;
+  padding: 5px 16px;
   border-radius: 100px;
   margin-bottom: 24px;
+}
+
+.nlp-hero__eyebrow-wrap,
+.nlp-hero__heading-wrap,
+.nlp-hero__sub-wrap {
+  text-align: center;
 }
 
 .nlp-hero__heading {
   font-size: clamp(32px, 5vw, 56px);
   font-weight: 800;
-  color: var(--nlp-white);
+  color: var(--essel-white);
   line-height: 1.08;
   letter-spacing: -0.02em;
   margin-bottom: 22px;
@@ -302,7 +340,7 @@ button { font-family: var(--nlp-font); cursor: pointer; }
 .nlp-hero__subheading {
   font-size: clamp(16px, 2vw, 19px);
   font-weight: 400;
-  color: rgba(255,255,255,0.72);
+  color: rgba(255,255,255,0.68);
   line-height: 1.65;
   margin-bottom: 36px;
   max-width: 680px;
@@ -324,23 +362,22 @@ button { font-family: var(--nlp-font); cursor: pointer; }
   gap: 10px;
   justify-content: center;
   font-size: 13px;
-  color: rgba(255,255,255,0.4);
+  color: rgba(255,255,255,0.38);
   font-weight: 500;
 }
 
 /* --------------------------------------------------------------------------
-   Stats Strip
+   Stats Strip — Essel Teal
    -------------------------------------------------------------------------- */
 .nlp-stats {
-  background: var(--nlp-yellow);
-  border-bottom: 1px solid rgba(0,0,0,0.08);
+  background: var(--essel-teal);
 }
 
 .nlp-stats__inner {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: 28px var(--nlp-pad-h);
+  padding: 30px var(--essel-pad-h);
   gap: 20px;
   flex-wrap: wrap;
 }
@@ -350,32 +387,27 @@ button { font-family: var(--nlp-font); cursor: pointer; }
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: 2px;
+  gap: 3px;
 }
 
 .nlp-stat strong {
-  font-size: clamp(22px, 3vw, 30px);
+  font-size: clamp(22px, 3vw, 32px);
   font-weight: 800;
-  color: var(--nlp-black);
+  color: var(--essel-white);
   line-height: 1.1;
 }
 
 .nlp-stat span {
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 600;
-  color: rgba(0,0,0,0.55);
+  color: rgba(255,255,255,0.65);
   text-transform: uppercase;
-  letter-spacing: 0.07em;
+  letter-spacing: 0.08em;
 }
 
 /* --------------------------------------------------------------------------
    Library Section
    -------------------------------------------------------------------------- */
-.nlp-library {
-  padding: 80px 0 100px;
-  background: var(--nlp-gray-50);
-}
-
 .nlp-section-header {
   text-align: center;
   margin-bottom: 36px;
@@ -384,19 +416,19 @@ button { font-family: var(--nlp-font); cursor: pointer; }
 .nlp-section-title {
   font-size: clamp(26px, 3.5vw, 38px);
   font-weight: 800;
-  color: var(--nlp-black);
+  color: var(--essel-navy);
   letter-spacing: -0.02em;
   margin-bottom: 10px;
 }
 
 .nlp-section-sub {
   font-size: 17px;
-  color: var(--nlp-text-muted);
+  color: var(--essel-text-muted);
   font-weight: 400;
 }
 
 /* --------------------------------------------------------------------------
-   Filter Bar
+   Filter Bar — Active state uses Essel Navy
    -------------------------------------------------------------------------- */
 .nlp-filter-bar {
   display: flex;
@@ -407,23 +439,23 @@ button { font-family: var(--nlp-font); cursor: pointer; }
 }
 
 .nlp-filter-btn {
-  background: var(--nlp-white);
-  border: 1px solid var(--nlp-gray-200);
-  color: var(--nlp-gray-700);
+  background: var(--essel-white);
+  border: 1.5px solid var(--essel-gray-200);
+  color: var(--essel-gray-700);
   font-size: 13px;
   font-weight: 600;
   padding: 8px 18px;
   border-radius: 100px;
-  transition: all var(--nlp-transition);
+  transition: all var(--essel-transition);
 }
 .nlp-filter-btn:hover {
-  border-color: var(--nlp-black);
-  color: var(--nlp-black);
+  border-color: var(--essel-teal);
+  color: var(--essel-teal);
 }
 .nlp-filter-btn.active {
-  background: var(--nlp-black);
-  border-color: var(--nlp-black);
-  color: var(--nlp-white);
+  background: var(--essel-navy);
+  border-color: var(--essel-navy);
+  color: var(--essel-white);
 }
 
 /* --------------------------------------------------------------------------
@@ -445,17 +477,16 @@ button { font-family: var(--nlp-font); cursor: pointer; }
   margin-left: 0 !important;
 }
 
-/* Full-width sections */
 .dnd-section .row-fluid > .span12 { flex: 0 0 100%; max-width: 100%; }
 
-/* 3-column card sections — gap via padding, section handles outer padding */
+/* 3-column card sections */
 .nlp-cards-section .row-fluid { gap: 24px; }
 .nlp-cards-section .row-fluid > .span4 {
   flex: 0 0 calc(33.333% - 16px);
   max-width: calc(33.333% - 16px);
 }
 
-/* Stretch intermediate DnD wrappers so cards fill column height */
+/* Stretch intermediate wrappers so cards fill column height */
 .nlp-cards-section .span4 > .dnd-row,
 .nlp-cards-section .span4 .widget-span,
 .nlp-cards-section .span4 .dnd-row > div {
@@ -467,7 +498,7 @@ button { font-family: var(--nlp-font); cursor: pointer; }
 .nlp-cards-section .span4 .nlp-card { flex: 1; }
 
 /* --------------------------------------------------------------------------
-   Newsletter Grid (legacy class kept for any inline use)
+   Newsletter Grid rows (inline use)
    -------------------------------------------------------------------------- */
 .nlp-grid-row {
   display: grid;
@@ -476,39 +507,37 @@ button { font-family: var(--nlp-font); cursor: pointer; }
   align-items: start;
 }
 
-/* featured card — full-width horizontal split */
+/* Featured card — horizontal split layout */
 .nlp-card--featured {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0;
-  margin-bottom: 0;
 }
 
 /* --------------------------------------------------------------------------
    Newsletter Card
    -------------------------------------------------------------------------- */
 .nlp-card {
-  background: var(--nlp-white);
-  border-radius: var(--nlp-radius-md);
-  border: 1px solid var(--nlp-gray-200);
+  background: var(--essel-white);
+  border-radius: var(--essel-radius-md);
+  border: 1px solid var(--essel-gray-100);
   overflow: hidden;
-  box-shadow: var(--nlp-shadow-card);
-  transition: box-shadow var(--nlp-transition), transform var(--nlp-transition);
+  box-shadow: var(--essel-shadow-card);
+  transition: box-shadow var(--essel-transition), transform var(--essel-transition);
   display: flex;
   flex-direction: column;
 }
 .nlp-card:hover {
-  box-shadow: var(--nlp-shadow-hover);
+  box-shadow: var(--essel-shadow-hover);
   transform: translateY(-3px);
 }
 
-/* card hidden by filter */
 .nlp-card[hidden] { display: none; }
 
 .nlp-card__image-wrap {
   position: relative;
   aspect-ratio: 16 / 9;
-  background: var(--nlp-gray-100);
+  background: var(--essel-gray-100);
   overflow: hidden;
   flex-shrink: 0;
 }
@@ -518,15 +547,15 @@ button { font-family: var(--nlp-font); cursor: pointer; }
   min-height: 320px;
 }
 
-/* placeholder pattern when no image */
+/* Placeholder — navy/teal diagonal stripe */
 .nlp-card__image-wrap--placeholder {
   background:
     repeating-linear-gradient(
       -45deg,
-      var(--nlp-gray-100),
-      var(--nlp-gray-100) 6px,
-      var(--nlp-gray-50) 6px,
-      var(--nlp-gray-50) 12px
+      #E8ECF0,
+      #E8ECF0 6px,
+      #F4F6F8 6px,
+      #F4F6F8 12px
     );
 }
 
@@ -538,17 +567,18 @@ button { font-family: var(--nlp-font); cursor: pointer; }
 }
 .nlp-card:hover .nlp-card__image { transform: scale(1.03); }
 
+/* Badge — Essel Orange */
 .nlp-card__badge {
   position: absolute;
   top: 14px;
   left: 14px;
-  background: var(--nlp-yellow);
-  color: var(--nlp-black);
+  background: var(--essel-orange);
+  color: var(--essel-white);
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  padding: 4px 10px;
+  padding: 4px 12px;
   border-radius: 100px;
 }
 
@@ -568,40 +598,42 @@ button { font-family: var(--nlp-font); cursor: pointer; }
 }
 
 .nlp-card__edition {
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 700;
-  color: var(--nlp-text-muted);
+  color: var(--essel-teal);
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
 }
 
-.nlp-card__dot { color: var(--nlp-gray-400); font-size: 12px; }
+.nlp-card__dot { color: var(--essel-gray-400); font-size: 12px; }
 
 .nlp-card__date {
   font-size: 12px;
-  color: var(--nlp-gray-400);
+  color: var(--essel-gray-400);
 }
 
+/* Topic tags — Essel-tinted colors */
 .nlp-card__tag {
   font-size: 11px;
   font-weight: 700;
-  padding: 3px 9px;
+  padding: 3px 10px;
   border-radius: 100px;
   margin-left: auto;
-  background: var(--nlp-gray-100);
-  color: var(--nlp-gray-700);
+  background: var(--essel-gray-100);
+  color: var(--essel-gray-700);
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
-.nlp-card__tag[data-topic="regulatory"] { background: #fff3cd; color: #856404; }
-.nlp-card__tag[data-topic="workforce"]  { background: #d1e7dd; color: #0a3622; }
-.nlp-card__tag[data-topic="technology"] { background: #cfe2ff; color: #084298; }
-.nlp-card__tag[data-topic="industry"]   { background: #f8d7da; color: #58151c; }
+.nlp-card__tag[data-topic="regulatory"]    { background: rgba(30,107,90,0.12);  color: #175549; }
+.nlp-card__tag[data-topic="workforce"]     { background: rgba(13,27,42,0.10);   color: #152336; }
+.nlp-card__tag[data-topic="technology"]    { background: rgba(245,130,31,0.12); color: #8C4100; }
+.nlp-card__tag[data-topic="industry"]      { background: rgba(42,138,114,0.12); color: #175549; }
+.nlp-card__tag[data-topic="skilled-trades"]{ background: rgba(245,130,31,0.12); color: #8C4100; }
 
 .nlp-card__title {
   font-size: clamp(16px, 1.6vw, 20px);
   font-weight: 700;
-  color: var(--nlp-black);
+  color: var(--essel-navy);
   line-height: 1.28;
   letter-spacing: -0.01em;
 }
@@ -612,23 +644,24 @@ button { font-family: var(--nlp-font); cursor: pointer; }
 
 .nlp-card__excerpt {
   font-size: 14px;
-  color: var(--nlp-text-muted);
+  color: var(--essel-text-muted);
   line-height: 1.65;
   flex: 1;
 }
 
+/* "Read Issue" link — teal underline */
 .nlp-card__read-link {
   display: inline-flex;
   align-items: center;
   font-size: 14px;
   font-weight: 700;
-  color: var(--nlp-black);
+  color: var(--essel-teal);
   padding: 10px 0;
-  border-bottom: 2px solid var(--nlp-yellow);
+  border-bottom: 2px solid var(--essel-teal-light);
   align-self: flex-start;
-  transition: border-color var(--nlp-transition), color var(--nlp-transition);
+  transition: color var(--essel-transition), border-color var(--essel-transition);
 }
-.nlp-card__read-link:hover { color: #886700; border-color: #886700; }
+.nlp-card__read-link:hover { color: var(--essel-orange); border-color: var(--essel-orange); }
 
 /* --------------------------------------------------------------------------
    Load More
@@ -639,39 +672,50 @@ button { font-family: var(--nlp-font); cursor: pointer; }
 }
 
 /* --------------------------------------------------------------------------
-   Subscribe Section
+   Subscribe Section — Navy with teal glow
    -------------------------------------------------------------------------- */
 .nlp-subscribe {
   padding: 90px 0;
-  background: var(--nlp-black);
+  background: var(--essel-navy);
   position: relative;
   overflow: hidden;
 }
 
+/* Teal glow effect behind subscribe */
 .nlp-subscribe::before {
   content: '';
   position: absolute;
+  bottom: -80px;
+  right: -80px;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(30,107,90,0.25) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.nlp-subscribe::after {
+  content: '';
+  position: absolute;
   inset: 0;
-  background-image: radial-gradient(circle, rgba(246,210,52,0.10) 1px, transparent 1px);
+  background-image: radial-gradient(circle, rgba(30,107,90,0.15) 1px, transparent 1px);
   background-size: 28px 28px;
   pointer-events: none;
 }
 
 .nlp-subscribe__inner {
   position: relative;
+  z-index: 1;
   text-align: center;
   max-width: 680px;
   margin: 0 auto;
 }
 
-.nlp-subscribe__eyebrow {
-  margin-bottom: 18px;
-}
+.nlp-subscribe__eyebrow { margin-bottom: 18px; }
 
 .nlp-subscribe__heading {
   font-size: clamp(26px, 3.5vw, 40px);
   font-weight: 800;
-  color: var(--nlp-white);
+  color: var(--essel-white);
   line-height: 1.1;
   letter-spacing: -0.02em;
   margin-bottom: 14px;
@@ -679,14 +723,14 @@ button { font-family: var(--nlp-font); cursor: pointer; }
 
 .nlp-subscribe__sub {
   font-size: 16px;
-  color: rgba(255,255,255,0.60);
+  color: rgba(255,255,255,0.58);
   margin-bottom: 36px;
 }
 
 /* --------------------------------------------------------------------------
    Inline Form
    -------------------------------------------------------------------------- */
-.nlp-form-wrap { margin-bottom: 28px; }
+.nlp-form-wrap { margin-bottom: 28px; position: relative; z-index: 1; }
 
 .nlp-inline-form__fields {
   display: flex;
@@ -696,50 +740,62 @@ button { font-family: var(--nlp-font); cursor: pointer; }
 }
 
 .nlp-inline-form__input {
-  font-family: var(--nlp-font);
+  font-family: var(--essel-font);
   font-size: 15px;
   padding: 14px 18px;
-  border: 1.5px solid rgba(255,255,255,0.15);
-  border-radius: var(--nlp-radius-sm);
+  border: 1.5px solid rgba(255,255,255,0.14);
+  border-radius: var(--essel-radius-sm);
   background: rgba(255,255,255,0.07);
-  color: var(--nlp-white);
+  color: var(--essel-white);
   flex: 1;
   min-width: 200px;
-  transition: border-color var(--nlp-transition);
+  transition: border-color var(--essel-transition);
   outline: none;
 }
-.nlp-inline-form__input::placeholder { color: rgba(255,255,255,0.35); }
-.nlp-inline-form__input:focus { border-color: var(--nlp-yellow); }
+.nlp-inline-form__input::placeholder { color: rgba(255,255,255,0.32); }
+.nlp-inline-form__input:focus { border-color: var(--essel-teal-light); }
 
 .nlp-inline-form__submit { flex-shrink: 0; }
 
 .nlp-inline-form__note {
   font-size: 12px;
-  color: rgba(255,255,255,0.35);
+  color: rgba(255,255,255,0.30);
   margin-top: 12px;
 }
 
 .nlp-subscribe__perks {
   list-style: none;
-  display: flex;
+  display: inline-flex;
   flex-direction: column;
   gap: 8px;
   text-align: left;
-  display: inline-flex;
+  position: relative;
+  z-index: 1;
 }
 
 .nlp-subscribe__perks li {
   font-size: 14px;
-  color: rgba(255,255,255,0.60);
+  color: rgba(255,255,255,0.58);
   font-weight: 500;
 }
 
+.nlp-subscribe__perks li::before {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: var(--essel-teal-light);
+  border-radius: 50%;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
 /* --------------------------------------------------------------------------
-   Footer
+   Footer — Deepest navy
    -------------------------------------------------------------------------- */
 .nlp-footer {
-  background: #070707;
-  border-top: 1px solid rgba(255,255,255,0.06);
+  background: #06111C;
+  border-top: 1px solid rgba(30,107,90,0.2);
   padding: 40px 0;
 }
 
@@ -751,10 +807,12 @@ button { font-family: var(--nlp-font); cursor: pointer; }
   flex-wrap: wrap;
 }
 
+.nlp-footer__brand {}
+
 .nlp-footer__logo {
   font-weight: 800;
   font-size: 20px;
-  color: var(--nlp-white);
+  color: var(--essel-white);
   letter-spacing: -0.02em;
   display: block;
   margin-bottom: 4px;
@@ -762,7 +820,7 @@ button { font-family: var(--nlp-font); cursor: pointer; }
 
 .nlp-footer__tagline {
   font-size: 13px;
-  color: rgba(255,255,255,0.35);
+  color: rgba(255,255,255,0.32);
 }
 
 .nlp-footer__links {
@@ -773,14 +831,14 @@ button { font-family: var(--nlp-font); cursor: pointer; }
 .nlp-footer__links a {
   font-size: 13px;
   font-weight: 600;
-  color: rgba(255,255,255,0.45);
-  transition: color var(--nlp-transition);
+  color: rgba(255,255,255,0.42);
+  transition: color var(--essel-transition);
 }
-.nlp-footer__links a:hover { color: var(--nlp-white); }
+.nlp-footer__links a:hover { color: var(--essel-teal-light); }
 
 .nlp-footer__copy {
   font-size: 12px;
-  color: rgba(255,255,255,0.25);
+  color: rgba(255,255,255,0.22);
   width: 100%;
   text-align: center;
   padding-top: 20px;
@@ -793,15 +851,11 @@ button { font-family: var(--nlp-font); cursor: pointer; }
    -------------------------------------------------------------------------- */
 @media (max-width: 900px) {
   .nlp-grid-row { grid-template-columns: repeat(2, 1fr); }
-
-  /* DnD 3-col → 2-col */
   .nlp-cards-section .row-fluid > .span4 {
     flex: 0 0 calc(50% - 12px);
     max-width: calc(50% - 12px);
   }
-  .nlp-card--featured {
-    grid-template-columns: 1fr;
-  }
+  .nlp-card--featured { grid-template-columns: 1fr; }
   .nlp-card--featured .nlp-card__image-wrap {
     min-height: 240px;
     aspect-ratio: 16 / 9;
@@ -810,8 +864,6 @@ button { font-family: var(--nlp-font); cursor: pointer; }
 
 @media (max-width: 680px) {
   .nlp-grid-row { grid-template-columns: 1fr; }
-
-  /* DnD 3-col → 1-col */
   .nlp-cards-section .row-fluid { gap: 16px; }
   .nlp-cards-section .row-fluid > .span4 {
     flex: 0 0 100%;
@@ -821,7 +873,6 @@ button { font-family: var(--nlp-font); cursor: pointer; }
   .nlp-header__toggle { display: flex; }
   .nlp-hero { padding: 64px 0 56px; }
   .nlp-stats__inner { gap: 24px 40px; }
-  .nlp-library { padding: 56px 0 72px; }
   .nlp-subscribe { padding: 64px 0; }
   .nlp-footer__inner { flex-direction: column; align-items: flex-start; }
   .nlp-footer__links { gap: 14px; }
