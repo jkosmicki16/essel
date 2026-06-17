@@ -1,0 +1,43 @@
+<article class="nlp-card{% if module.is_featured %} nlp-card--featured{% endif %}"
+         data-topic="{{ module.topic }}">
+
+  <div class="nlp-card__image-wrap{% if not module.cover_image.src %} nlp-card__image-wrap--placeholder{% endif %}">
+    {% if module.cover_image.src %}
+      <img src="{{ module.cover_image.src }}"
+           alt="{{ module.cover_image.alt }}"
+           class="nlp-card__image"
+           loading="lazy">
+    {% endif %}
+    {% if module.is_featured %}
+      <span class="nlp-card__badge">Latest Issue</span>
+    {% endif %}
+  </div>
+
+  <div class="nlp-card__body">
+    <div class="nlp-card__meta">
+      <span class="nlp-card__edition">{{ module.edition_number }}</span>
+      <span class="nlp-card__dot">·</span>
+      <time class="nlp-card__date">{{ module.publish_date }}</time>
+      {% set topic_labels = {
+        "regulatory": "Regulatory",
+        "workforce": "Workforce",
+        "technology": "Technology",
+        "industry": "Industry Trends"
+      } %}
+      <span class="nlp-card__tag" data-topic="{{ module.topic }}">
+        {{ topic_labels[module.topic] }}
+      </span>
+    </div>
+
+    <h3 class="nlp-card__title">{{ module.title }}</h3>
+
+    <div class="nlp-card__excerpt">{{ module.excerpt }}</div>
+
+    <a href="{{ module.issue_url.url.href }}"
+       class="nlp-card__read-link"
+       {% if module.issue_url.url.type == "EXTERNAL" %}target="_blank" rel="noopener"{% endif %}>
+      Read Issue →
+    </a>
+  </div>
+
+</article>

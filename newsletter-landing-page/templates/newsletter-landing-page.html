@@ -1,0 +1,296 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: Newsletter Library — Landing Page
+-->
+<!DOCTYPE html>
+<html lang="{{ html_lang }}" prefix="og: http://ogp.me/ns#">
+<head>
+  {{ standard_header_includes }}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ content.html_title }}</title>
+  <meta name="description" content="{{ content.meta_description }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ get_asset_url('../css/newsletter-landing-page.css') }}">
+</head>
+<body class="nlp-page">
+
+  <!-- ── ANNOUNCEMENT BANNER ── -->
+  <div class="nlp-banner" id="nlp-banner" role="banner">
+    <div class="page-width nlp-banner__inner">
+      <span class="nlp-banner__text">
+        {{ module "announcement_text"
+            label="Banner Text",
+            type="text",
+            default="📬 New issue drops every 2 weeks — subscribe to stay ahead in environmental tech." }}
+      </span>
+      <a class="nlp-banner__cta"
+         href="{{ module "banner_cta_url" label="Banner CTA URL", type="url", default={url: {href: "#subscribe"}} | field("href") }}">
+        {{ module "banner_cta_label" label="Banner CTA Label", type="text", default="Subscribe Free" }}
+      </a>
+      <button class="nlp-banner__close" id="nlp-banner-close" aria-label="Dismiss banner">×</button>
+    </div>
+  </div>
+
+  <!-- ── NAVIGATION ── -->
+  <header class="nlp-header" role="banner">
+    <div class="page-width nlp-header__inner">
+      <a class="nlp-header__logo" href="{{ module "logo_url" label="Logo URL", type="url", default={url: {href: "/"}} | field("href") }}">
+        <img src="{{ module "logo_image" label="Logo", type="image", default={src: "", alt: "Essel"} | field("src") }}"
+             alt="{{ module "logo_alt" label="Logo Alt Text", type="text", default="Essel" }}"
+             class="nlp-header__logo-img"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';">
+        <span class="nlp-header__logo-text">ESSEL</span>
+      </a>
+
+      <nav class="nlp-nav" aria-label="Main navigation">
+        <a href="{{ module "nav1_url" label="Nav Link 1 URL", type="url", default={url: {href: "/"}} | field("href") }}">
+          {{ module "nav1_label" label="Nav Link 1 Label", type="text", default="Home" }}
+        </a>
+        <a href="{{ module "nav2_url" label="Nav Link 2 URL", type="url", default={url: {href: "/blog"}} | field("href") }}">
+          {{ module "nav2_label" label="Nav Link 2 Label", type="text", default="Blog" }}
+        </a>
+        <a href="{{ module "nav3_url" label="Nav Link 3 URL", type="url", default={url: {href: "/about"}} | field("href") }}">
+          {{ module "nav3_label" label="Nav Link 3 Label", type="text", default="About" }}
+        </a>
+        <a href="#subscribe" class="nlp-nav__cta">
+          {{ module "nav_cta_label" label="Nav CTA Label", type="text", default="Subscribe" }}
+        </a>
+      </nav>
+
+      <button class="nlp-header__toggle" id="nlp-nav-toggle" aria-expanded="false" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <nav class="nlp-mobile-nav" id="nlp-mobile-nav" aria-label="Mobile navigation">
+      <a href="/">Home</a>
+      <a href="/blog">Blog</a>
+      <a href="/about">About</a>
+      <a href="#subscribe" class="nlp-nav__cta">Subscribe</a>
+    </nav>
+  </header>
+
+  <!-- ── HERO ── -->
+  <section class="nlp-hero">
+    <div class="page-width nlp-hero__inner">
+      <span class="nlp-hero__eyebrow">
+        {{ module "hero_eyebrow" label="Hero Eyebrow", type="text", default="The Essel Newsletter" }}
+      </span>
+      <h1 class="nlp-hero__heading">
+        {{ module "hero_heading" label="Hero Heading", type="text", default="Insights That Move the Environmental Industry Forward" }}
+      </h1>
+      <p class="nlp-hero__subheading">
+        {{ module "hero_sub" label="Hero Subheading", type="text", default="Every two weeks, we distill the latest in environmental consulting, workforce trends, and regulatory updates into one clear, actionable read." }}
+      </p>
+      <div class="nlp-hero__actions">
+        <a href="#subscribe" class="nlp-btn nlp-btn--primary">
+          {{ module "hero_cta_label" label="Hero CTA Label", type="text", default="Get Every Issue" }}
+        </a>
+        <a href="#library" class="nlp-btn nlp-btn--ghost">
+          {{ module "hero_secondary_label" label="Hero Secondary Label", type="text", default="Browse the Archive" }}
+        </a>
+      </div>
+      <div class="nlp-hero__meta">
+        <span>📅 Bi-weekly</span>
+        <span>·</span>
+        <span>Free to read</span>
+        <span>·</span>
+        <span>No fluff</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── STATS STRIP ── -->
+  <div class="nlp-stats">
+    <div class="page-width nlp-stats__inner">
+      <div class="nlp-stat">
+        <strong>{{ module "stat1_num" label="Stat 1 Number", type="text", default="2,400+" }}</strong>
+        <span>{{ module "stat1_label" label="Stat 1 Label", type="text", default="Subscribers" }}</span>
+      </div>
+      <div class="nlp-stat">
+        <strong>{{ module "stat2_num" label="Stat 2 Number", type="text", default="24" }}</strong>
+        <span>{{ module "stat2_label" label="Stat 2 Label", type="text", default="Issues Published" }}</span>
+      </div>
+      <div class="nlp-stat">
+        <strong>{{ module "stat3_num" label="Stat 3 Number", type="text", default="62%" }}</strong>
+        <span>{{ module "stat3_label" label="Stat 3 Label", type="text", default="Open Rate" }}</span>
+      </div>
+      <div class="nlp-stat">
+        <strong>{{ module "stat4_num" label="Stat 4 Number", type="text", default="Every 2 Weeks" }}</strong>
+        <span>{{ module "stat4_label" label="Stat 4 Label", type="text", default="New Issue" }}</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── NEWSLETTER LIBRARY ── -->
+  <section class="nlp-library" id="library">
+    <div class="page-width">
+
+      <div class="nlp-section-header">
+        <h2 class="nlp-section-title">
+          {{ module "library_heading" label="Library Heading", type="text", default="All Issues" }}
+        </h2>
+        <p class="nlp-section-sub">
+          {{ module "library_sub" label="Library Subheading", type="text", default="Every edition, in one place. Start anywhere." }}
+        </p>
+      </div>
+
+      <!-- Filter bar -->
+      <div class="nlp-filter-bar" role="group" aria-label="Filter issues by topic">
+        <button class="nlp-filter-btn active" data-filter="all">All Topics</button>
+        <button class="nlp-filter-btn" data-filter="regulatory">Regulatory</button>
+        <button class="nlp-filter-btn" data-filter="workforce">Workforce</button>
+        <button class="nlp-filter-btn" data-filter="technology">Technology</button>
+        <button class="nlp-filter-btn" data-filter="industry">Industry Trends</button>
+      </div>
+
+      <!-- Newsletter grid — editors add cards via the newsletter-card module -->
+      <div class="nlp-grid" id="nlp-grid">
+
+        <!-- FEATURED / LATEST ISSUE -->
+        <article class="nlp-card nlp-card--featured" data-topic="regulatory">
+          <div class="nlp-card__image-wrap">
+            <img src="{{ module "feat_img" label="Featured Issue Image", type="image", default={src: "", alt: ""} | field("src") }}"
+                 alt="{{ module "feat_img_alt" label="Featured Issue Image Alt", type="text", default="Newsletter cover" }}"
+                 class="nlp-card__image"
+                 onerror="this.parentElement.classList.add('nlp-card__image-wrap--placeholder')">
+            <span class="nlp-card__badge">Latest Issue</span>
+          </div>
+          <div class="nlp-card__body">
+            <div class="nlp-card__meta">
+              <span class="nlp-card__edition">
+                {{ module "feat_edition" label="Featured Edition #", type="text", default="Issue #24" }}
+              </span>
+              <span class="nlp-card__dot">·</span>
+              <time class="nlp-card__date">
+                {{ module "feat_date" label="Featured Issue Date", type="text", default="June 3, 2025" }}
+              </time>
+              <span class="nlp-card__tag" data-topic="regulatory">
+                {{ module "feat_topic" label="Featured Issue Topic", type="text", default="Regulatory" }}
+              </span>
+            </div>
+            <h3 class="nlp-card__title">
+              {{ module "feat_title" label="Featured Issue Title", type="text", default="What the EPA's New PFAS Rules Mean for Environmental Consultants" }}
+            </h3>
+            <p class="nlp-card__excerpt">
+              {{ module "feat_excerpt" label="Featured Issue Excerpt", type="richtext", default="The EPA finalized landmark PFAS regulations this spring. In this issue we break down what changed, which thresholds matter, and how consulting firms can get ahead of the compliance curve before the deadlines hit." }}
+            </p>
+            <a href="{{ module "feat_url" label="Featured Issue URL", type="url", default={url: {href: "#"}} | field("href") }}"
+               class="nlp-card__read-link">
+              Read Issue →
+            </a>
+          </div>
+        </article>
+
+        <!-- PAST ISSUES — repeat this block for each archive entry -->
+        {% set issues = [
+          {edition: "Issue #23", date: "May 20, 2025", topic: "workforce", topic_label: "Workforce", title: "Hiring Environmental Scientists in 2025: What Candidates Actually Want", excerpt: "Compensation alone won't close positions anymore. We surveyed 340 environmental professionals to find out what really drives their job decisions — and what firms are getting wrong.", url: "#"},
+          {edition: "Issue #22", date: "May 6, 2025", topic: "technology", topic_label: "Technology", title: "AI in the Field: Early Wins (and Honest Limits) for Site Assessments", excerpt: "From LiDAR-assisted mapping to AI-drafted Phase I reports, technology is reshaping fieldwork. Here's what's actually saving time vs. what's still vaporware.", url: "#"},
+          {edition: "Issue #21", date: "April 22, 2025", topic: "industry", topic_label: "Industry Trends", title: "Q1 2025 Environmental Market Snapshot", excerpt: "Remediation demand is up, federal spending signals are mixed, and M&A activity in the consulting space hit a three-year high. Our quarterly digest of what moved the market.", url: "#"},
+          {edition: "Issue #20", date: "April 8, 2025", topic: "regulatory", topic_label: "Regulatory", title: "State-Level PFAS Rules Are Outpacing Federal Action", excerpt: "Twelve states now have stricter PFAS standards than federal rules require. We map out the patchwork and identify the jurisdictions where consultants need to act now.", url: "#"},
+          {edition: "Issue #19", date: "March 25, 2025", topic: "workforce", topic_label: "Workforce", title: "The Hidden Cost of a 60-Day Hire: A Data-Driven Look at Vacancy Impact", excerpt: "We crunched the numbers on what extended open roles actually cost environmental firms — in dollars, project delays, and team morale. The results surprised us.", url: "#"},
+          {edition: "Issue #18", date: "March 11, 2025", topic: "technology", topic_label: "Technology", title: "Digital Chain of Custody: Reducing Lab Errors with E-Submissions", excerpt: "Paper-based COC forms are a persistent source of sample tracking errors. Electronic submissions are finally hitting mainstream adoption — here's the transition guide.", url: "#"}
+        ] %}
+
+        {% for issue in issues %}
+        <article class="nlp-card" data-topic="{{ issue.topic }}">
+          <div class="nlp-card__image-wrap nlp-card__image-wrap--placeholder"></div>
+          <div class="nlp-card__body">
+            <div class="nlp-card__meta">
+              <span class="nlp-card__edition">{{ issue.edition }}</span>
+              <span class="nlp-card__dot">·</span>
+              <time class="nlp-card__date">{{ issue.date }}</time>
+              <span class="nlp-card__tag" data-topic="{{ issue.topic }}">{{ issue.topic_label }}</span>
+            </div>
+            <h3 class="nlp-card__title">{{ issue.title }}</h3>
+            <p class="nlp-card__excerpt">{{ issue.excerpt }}</p>
+            <a href="{{ issue.url }}" class="nlp-card__read-link">Read Issue →</a>
+          </div>
+        </article>
+        {% endfor %}
+
+      </div><!-- /nlp-grid -->
+
+      <div class="nlp-load-more-wrap">
+        <button class="nlp-btn nlp-btn--outline" id="nlp-load-more">Load More Issues</button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── SUBSCRIBE ── -->
+  <section class="nlp-subscribe" id="subscribe">
+    <div class="page-width nlp-subscribe__inner">
+      <span class="nlp-hero__eyebrow nlp-subscribe__eyebrow">
+        {{ module "sub_eyebrow" label="Subscribe Eyebrow", type="text", default="Never Miss an Issue" }}
+      </span>
+      <h2 class="nlp-subscribe__heading">
+        {{ module "sub_heading" label="Subscribe Heading", type="text", default="Get Essel's Newsletter Delivered Free, Every Two Weeks" }}
+      </h2>
+      <p class="nlp-subscribe__sub">
+        {{ module "sub_sub" label="Subscribe Subtext", type="text", default="Join environmental professionals who rely on Essel for clear, curated industry intelligence. Unsubscribe anytime." }}
+      </p>
+
+      <!-- HubSpot form embed — replace form ID in editor -->
+      <div class="nlp-form-wrap">
+        {{ module "hs_form"
+            label="HubSpot Subscription Form",
+            type="hubspotform",
+            default={
+              form_id: "",
+              response_type: "inline",
+              message: "Thanks! You're on the list."
+            }
+        }}
+        <!-- Fallback inline form if no HubSpot form is connected -->
+        <form class="nlp-inline-form" action="#" method="post" novalidate>
+          <div class="nlp-inline-form__fields">
+            <input type="text" name="first_name" placeholder="First name" class="nlp-inline-form__input" autocomplete="given-name">
+            <input type="email" name="email" placeholder="Work email address" class="nlp-inline-form__input" required autocomplete="email">
+            <button type="submit" class="nlp-btn nlp-btn--primary nlp-inline-form__submit">
+              {{ module "sub_btn_label" label="Subscribe Button Label", type="text", default="Subscribe Free" }}
+            </button>
+          </div>
+          <p class="nlp-inline-form__note">No spam. No fluff. Just the good stuff.</p>
+        </form>
+      </div>
+
+      <ul class="nlp-subscribe__perks">
+        <li>✓ Bi-weekly environmental industry insights</li>
+        <li>✓ Regulatory updates decoded for practitioners</li>
+        <li>✓ Workforce & hiring trends</li>
+        <li>✓ Full access to the archive</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer class="nlp-footer" role="contentinfo">
+    <div class="page-width nlp-footer__inner">
+      <div class="nlp-footer__brand">
+        <a href="/" class="nlp-header__logo-text nlp-footer__logo">ESSEL</a>
+        <p class="nlp-footer__tagline">
+          {{ module "footer_tagline" label="Footer Tagline", type="text", default="Environmental staffing & consulting intelligence." }}
+        </p>
+      </div>
+      <nav class="nlp-footer__links" aria-label="Footer navigation">
+        <a href="/">Home</a>
+        <a href="/blog">Blog</a>
+        <a href="/about">About</a>
+        <a href="/privacy-policy">Privacy</a>
+        <a href="/unsubscribe">Unsubscribe</a>
+      </nav>
+      <p class="nlp-footer__copy">
+        © {{ content.publish_date|datetimeformat('%Y') }} Essel. All rights reserved.
+      </p>
+    </div>
+  </footer>
+
+  <script src="{{ get_asset_url('../js/newsletter-landing-page.js') }}"></script>
+  {{ standard_footer_includes }}
+</body>
+</html>

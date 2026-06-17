@@ -1,0 +1,67 @@
+{
+  "label": "Newsletter Issue Card",
+  "css_assets": [],
+  "external_js": [],
+  "global": false,
+  "is_available_for_new_content": true,
+  "js_assets": [],
+  "other_assets": [],
+  "smart_type": "NOT_SMART",
+  "tags": ["newsletter", "card", "library"],
+  "fields": [
+    {
+      "name": "edition_number",
+      "label": "Edition Number (e.g. Issue #24)",
+      "type": "text",
+      "default": "Issue #1"
+    },
+    {
+      "name": "publish_date",
+      "label": "Publish Date",
+      "type": "text",
+      "default": "January 1, 2025"
+    },
+    {
+      "name": "topic",
+      "label": "Topic Category",
+      "type": "choice",
+      "choices": [
+        ["regulatory", "Regulatory"],
+        ["workforce", "Workforce"],
+        ["technology", "Technology"],
+        ["industry", "Industry Trends"]
+      ],
+      "default": "regulatory"
+    },
+    {
+      "name": "title",
+      "label": "Issue Title",
+      "type": "text",
+      "default": "Newsletter Issue Title"
+    },
+    {
+      "name": "excerpt",
+      "label": "Excerpt / Summary",
+      "type": "richtext",
+      "default": "A short summary of what this issue covers."
+    },
+    {
+      "name": "issue_url",
+      "label": "Read Issue URL",
+      "type": "url",
+      "default": { "url": { "href": "#" } }
+    },
+    {
+      "name": "cover_image",
+      "label": "Cover Image (optional)",
+      "type": "image",
+      "default": { "src": "", "alt": "" }
+    },
+    {
+      "name": "is_featured",
+      "label": "Mark as Featured / Latest",
+      "type": "boolean",
+      "default": false
+    }
+  ]
+}
