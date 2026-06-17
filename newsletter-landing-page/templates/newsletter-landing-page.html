@@ -21,7 +21,7 @@
 {# ── ANNOUNCEMENT BANNER ── #}
 {% dnd_area "banner_area" label="Announcement Banner (delete section to hide)" %}
   {% dnd_section
-     background_color={r:246, g:210, b:52, a:1}
+     background_color={r:30, g:107, b:90, a:1}
      padding={top:0, bottom:0, left:0, right:0}
      margin={top:0, bottom:0}
   %}
@@ -155,7 +155,7 @@
   %}
     {% dnd_column width=12 %}
       {% dnd_row %}
-        {% dnd_module path="newsletter-landing-page/modules/newsletter-card"
+        {% dnd_module path="newsletter-landing-page/modules/newsletter-card.module"
            label="Latest Issue (Featured Card)"
            edition_number="Issue #1"
            publish_date="June 17, 2025"
@@ -179,7 +179,7 @@
   %}
     {% dnd_column offset=0, width=4 %}
       {% dnd_row %}
-        {% dnd_module path="newsletter-landing-page/modules/newsletter-card"
+        {% dnd_module path="newsletter-landing-page/modules/newsletter-card.module"
            label="Issue Card"
            edition_number="Issue #23"
            publish_date="May 20, 2025"
@@ -194,7 +194,7 @@
     {% end_dnd_column %}
     {% dnd_column offset=4, width=4 %}
       {% dnd_row %}
-        {% dnd_module path="newsletter-landing-page/modules/newsletter-card"
+        {% dnd_module path="newsletter-landing-page/modules/newsletter-card.module"
            label="Issue Card"
            edition_number="Issue #3 (coming soon)"
            publish_date="July 15, 2025"
@@ -209,7 +209,7 @@
     {% end_dnd_column %}
     {% dnd_column offset=8, width=4 %}
       {% dnd_row %}
-        {% dnd_module path="newsletter-landing-page/modules/newsletter-card"
+        {% dnd_module path="newsletter-landing-page/modules/newsletter-card.module"
            label="Issue Card"
            edition_number="Issue #4 (coming soon)"
            publish_date="July 29, 2025"
@@ -232,7 +232,7 @@
   %}
     {% dnd_column offset=0, width=4 %}
       {% dnd_row %}
-        {% dnd_module path="newsletter-landing-page/modules/newsletter-card"
+        {% dnd_module path="newsletter-landing-page/modules/newsletter-card.module"
            label="Issue Card"
            edition_number="Issue #5 (coming soon)"
            publish_date="Aug 12, 2025"
@@ -247,7 +247,7 @@
     {% end_dnd_column %}
     {% dnd_column offset=4, width=4 %}
       {% dnd_row %}
-        {% dnd_module path="newsletter-landing-page/modules/newsletter-card"
+        {% dnd_module path="newsletter-landing-page/modules/newsletter-card.module"
            label="Issue Card"
            edition_number="Issue #6 (coming soon)"
            publish_date="Aug 26, 2025"
@@ -262,7 +262,7 @@
     {% end_dnd_column %}
     {% dnd_column offset=8, width=4 %}
       {% dnd_row %}
-        {% dnd_module path="newsletter-landing-page/modules/newsletter-card"
+        {% dnd_module path="newsletter-landing-page/modules/newsletter-card.module"
            label="Issue Card"
            edition_number="Issue #7 (coming soon)"
            publish_date="Sep 9, 2025"
