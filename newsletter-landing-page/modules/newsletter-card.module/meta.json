@@ -3,6 +3,7 @@
   "css_assets": [],
   "external_js": [],
   "global": false,
+  "host_template_types": ["PAGE"],
   "is_available_for_new_content": true,
   "js_assets": [],
   "other_assets": [],
@@ -10,20 +11,46 @@
   "tags": ["newsletter", "card", "library"],
   "fields": [
     {
+      "id": "cover_image",
+      "name": "cover_image",
+      "label": "Cover Image",
+      "help_text": "Upload or select a cover image for this newsletter issue.",
+      "required": false,
+      "locked": false,
+      "type": "image",
+      "default": {
+        "src": "",
+        "alt": "",
+        "width": 800,
+        "height": 450
+      }
+    },
+    {
+      "id": "edition_number",
       "name": "edition_number",
-      "label": "Edition Number (e.g. Issue #24)",
+      "label": "Edition Number",
+      "help_text": "e.g. Issue #24",
+      "required": false,
+      "locked": false,
       "type": "text",
       "default": "Issue #1"
     },
     {
+      "id": "publish_date",
       "name": "publish_date",
       "label": "Publish Date",
+      "help_text": "e.g. June 1, 2025",
+      "required": false,
+      "locked": false,
       "type": "text",
       "default": "January 1, 2025"
     },
     {
+      "id": "topic",
       "name": "topic",
       "label": "Topic Category",
+      "required": false,
+      "locked": false,
       "type": "choice",
       "choices": [
         ["skilled-trades", "Skilled Trades"],
@@ -34,32 +61,47 @@
       "default": "skilled-trades"
     },
     {
+      "id": "title",
       "name": "title",
       "label": "Issue Title",
+      "required": false,
+      "locked": false,
       "type": "text",
       "default": "Newsletter Issue Title"
     },
     {
+      "id": "excerpt",
       "name": "excerpt",
       "label": "Excerpt / Summary",
+      "required": false,
+      "locked": false,
       "type": "richtext",
-      "default": "A short summary of what this issue covers."
+      "default": "<p>A short summary of what this issue covers.</p>"
     },
     {
+      "id": "issue_url",
       "name": "issue_url",
-      "label": "Read Issue URL",
-      "type": "url",
-      "default": { "url": { "href": "#" } }
+      "label": "Read Issue Link",
+      "help_text": "URL where readers can view the full newsletter issue.",
+      "required": false,
+      "locked": false,
+      "type": "link",
+      "default": {
+        "url": {
+          "type": "EXTERNAL",
+          "href": "#"
+        },
+        "open_in_new_tab": false,
+        "no_follow": false
+      }
     },
     {
-      "name": "cover_image",
-      "label": "Cover Image (optional)",
-      "type": "image",
-      "default": { "src": "", "alt": "" }
-    },
-    {
+      "id": "is_featured",
       "name": "is_featured",
       "label": "Mark as Featured / Latest",
+      "help_text": "Enable to display this card in the large featured layout at the top.",
+      "required": false,
+      "locked": false,
       "type": "boolean",
       "default": false
     }
